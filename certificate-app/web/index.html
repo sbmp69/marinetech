@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certificate Generator</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <!-- Docxtemplater + PizZip (browser builds) -->
+  <script src="https://unpkg.com/pizzip@3.1.7/dist/pizzip.min.js"></script>
+  <script src="https://unpkg.com/docxtemplater@3.44.0/build/docxtemplater.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>Certificate Generation</h1>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>1) Upload DOCX Template</h2>
+      <p>Use the placeholders described in README and schema. The template should loop over <code>certificates</code>.</p>
+      <input type="file" id="templateInput" accept=".docx" />
+    </section>
+
+    <section class="card">
+      <h2>2) Number of Certificates</h2>
+      <div class="row">
+        <label for="count">Count</label>
+        <input type="number" id="count" min="1" max="50" value="1" />
+        <button id="buildFormsBtn" class="btn">Build Forms</button>
+      </div>
+      <div class="row" style="margin-top:10px;">
+        <label for="delimiters">Template Delimiters</label>
+        <select id="delimiters">
+          <option value="double">Double Curly {{ }}</option>
+          <option value="single">Single Curly { }</option>
+        </select>
+      </div>
+      <div class="row" style="margin-top:10px;">
+        <label for="debugMissing">Debug Placeholders</label>
+        <input type="checkbox" id="debugMissing" />
+        <span style="font-size:12px;color:#94a3b8;">Show «missing: path» in output when a value is not provided/mismatched</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3) Fill Details</h2>
+      <div id="formsContainer"></div>
+      <div class="actions">
+        <button id="generateBtn" class="btn" disabled>Generate PDF</button>
+      </div>
+      <div id="status" class="status"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>MarineTech — Local Prototype</span>
+  </footer>
+  <script src="./app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .certificate-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+            border-bottom: 1px solid #000;
+        }
+        .field {
+            margin: 5px 0;
+        }
+        .field-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 200px;
+        }
+        .field-value {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="certificate-title">CERTIFICATE OF INSPECTION</div>
+    </div>
+
+    <!-- Header Information -->
+    <div class="section">
+        <div class="section-title">HEADER INFORMATION</div>
+        <div class="field">
+            <span class="field-label">Vessel Name:</span>
+            <span class="field-value">{{header.vesselName}}</span>
+        </div>
+        <div class="field">
+            <span class="field-label">Manufactured By:</span>
+            <span class="field-value">{{header.manufacturedBy}}</span>
+        </div>
+        <!-- Add more fields as needed -->
+    </div>
+
+    <!-- Buoyancy Status -->
+    <div class="section">
+        <div class="section-title">BUOYANCY STATUS</div>
+        <div class="field">
+            <span class="field-label">Arches:</span>
+            <span class="field-value">{{buoyancy.arches}}</span>
+        </div>
+        <!-- Add more fields as needed -->
+    </div>
+
+    <!-- Add more sections as needed -->
+</body>
+</html>
