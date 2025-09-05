@@ -19,13 +19,7 @@
 
   <main class="container">
     <section class="card">
-      <h2>1) Upload DOCX Template</h2>
-      <p>Use the placeholders described in README and schema. The template should loop over <code>certificates</code>.</p>
-      <input type="file" id="templateInput" accept=".docx" />
-    </section>
-
-    <section class="card">
-      <h2>2) Number of Certificates</h2>
+      <h2>1) Number of Certificates</h2>
       <div class="row">
         <label for="count">Count</label>
         <input type="number" id="count" min="1" max="50" value="1" />
@@ -51,7 +45,7 @@
       <div class="actions">
         <button id="generateBtn" class="btn" disabled>Generate PDF</button>
       </div>
-      <div id="status" class="status"></div>
+      <div class="status-bar" id="status">Ready. Loading template...</div>
     </section>
   </main>
 

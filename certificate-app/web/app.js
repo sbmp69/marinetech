@@ -1,13 +1,11 @@
 import { SCHEMA } from './schema.js';
 
-const templateInput = document.getElementById('templateInput');
+// DOM elements
 const countInput = document.getElementById('count');
 const buildFormsBtn = document.getElementById('buildFormsBtn');
 const formsContainer = document.getElementById('formsContainer');
 const generateBtn = document.getElementById('generateBtn');
-const delimiterSelect = document.getElementById('delimiters');
 const statusBox = document.getElementById('status');
-const debugMissingEl = document.getElementById('debugMissing');
 
 let templateArrayBuffer = null;
 let formsBuilt = false;
@@ -78,7 +76,7 @@ function buildForms() {
 }
 
 function ensureGenerateEnabled() {
-  generateBtn.disabled = !(templateValid && formsBuilt);
+  generateBtn.disabled = !formsBuilt;
 }
 
 function getNested(obj, path) {
@@ -113,6 +111,9 @@ function collectCertificateData(formIndex) {
   
   // First collect all field values
   inputs.forEach(input => {
+    // Skip the submit button if it exists
+    if (input.type === 'submit') return;
+    
     let value;
     if (input.type === 'checkbox') {
       value = input.checked;
@@ -128,8 +129,10 @@ function collectCertificateData(formIndex) {
     
     // Only add if the value exists and isn't an empty string
     if (value !== undefined && value !== '' && !(typeof value === 'string' && !value.trim())) {
-      data[input.name] = value;
-      console.log(`Collected field: ${input.name} =`, value);
+      // Convert input name to the format expected by the template
+      const fieldName = input.name.replace(`cert-${formIndex}-`, '');
+      data[fieldName] = value;
+      console.log(`Collected field: ${fieldName} =`, value);
     }
   });
   
@@ -146,150 +149,103 @@ async function readFileAsArrayBuffer(file) {
   });
 }
 
-// PDF generation with template matching
-async function downloadPDF(certificates, filename) {
-  console.log('Raw certificate data:', certificates);
-  
-  // Force .pdf extension
-  filename = filename.replace(/\.pdf$/i, '') + '.pdf';
+// Load HTML template
+async function loadHtmlTemplate() {
+  const response = await fetch('/templates/certificate-template.html');
+  if (!response.ok) {
+    console.error('Error loading template:', response.status, response.statusText);
+    throw new Error('Failed to load template');
+  }
+  return await response.text();
+}
 
+// PDF generation with Puppeteer
+async function downloadPDF(certificates) {
   try {
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'mm',
-      format: 'a4'
-    });
-
-    // Process each certificate
-    for (let certIndex = 0; certIndex < certificates.length; certIndex++) {
-      const cert = certificates[certIndex];
-      console.log(`Processing certificate ${certIndex + 1}:`, cert);
+    const template = await loadHtmlTemplate();
+    
+    for (const [index, cert] of certificates.entries()) {
+      // Transform data for the template
+      const data = {
+        ...cert,
+        certificateNumber: cert['header.certificateNo'] || `CERT-${Date.now()}`,
+        vesselName: cert['header.vesselName'] || '',
+        manufacturedBy: cert['header.manufacturedBy'] || '',
+        ownerName: cert['header.ownerName'] || '',
+        inspectionDate: new Date().toISOString().split('T')[0]
+      };
       
-      if (certIndex > 0) {
-        pdf.addPage();
+      // Replace placeholders
+      let html = template;
+      for (const [key, value] of Object.entries(data)) {
+        html = html.replace(new RegExp(`{{${key}}}`, 'g'), value || '');
       }
-
-      // Create a temporary div for the certificate
-      const tempDiv = document.createElement('div');
-      tempDiv.style.padding = '20px';
-      tempDiv.style.fontFamily = 'Arial, sans-serif';
-      tempDiv.style.lineHeight = '1.6';
-      document.body.appendChild(tempDiv);
-
-      try {
-        // Create certificate HTML
-        let html = `
-          <div style="text-align: center; margin-bottom: 20px;">
-            <h1 style="font-size: 24px; margin-bottom: 30px;">CERTIFICATE OF INSPECTION</h1>
-        `;
-
-        // Add sections from the certificate data
-        for (const [key, value] of Object.entries(cert)) {
-          if (key.includes('.')) {
-            const [section, field] = key.split('.');
-            html += `
-              <div style="margin: 10px 0; text-align: left; padding: 0 20px;">
-                <strong>${field.replace(/([A-Z])/g, ' $1').toUpperCase()}:</strong> ${value || ''}
-              </div>
-            `;
-          } else {
-            html += `
-              <div style="margin: 10px 0; text-align: left; padding: 0 20px;">
-                <strong>${key.replace(/([A-Z])/g, ' $1').toUpperCase()}:</strong> ${value || ''}
-              </div>
-            `;
-          }
+      
+      // Generate PDF
+      const response = await fetch('/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          html,
+          filename: `certificate_${data.certificateNumber}.pdf` 
+        })
+      });
+      
+      if (!response.ok) {
+        let errorMessage = 'PDF generation failed';
+        try {
+          const errorData = await response.json();
+          console.error('Server error details:', errorData);
+          errorMessage = errorData.details || errorMessage;
+        } catch (e) {
+          console.error('Failed to parse error response:', e);
         }
-
-        html += `</div>`;
-        tempDiv.innerHTML = html;
-
-        // Convert to canvas
-        const canvas = await html2canvas(tempDiv, {
-          scale: 2,
-          useCORS: true,
-          logging: true,
-          backgroundColor: '#ffffff'
-        });
-
-        // Add to PDF
-        const imgData = canvas.toDataURL('image/png');
-        pdf.addImage(imgData, 'PNG', 10, 10, 190, 0, undefined, 'FAST');
-
-      } catch (error) {
-        console.error('Error generating certificate:', error);
-        throw error; // Re-throw to be caught by the outer try-catch
-      } finally {
-        // Clean up
-        if (document.body.contains(tempDiv)) {
-          document.body.removeChild(tempDiv);
-        }
+        throw new Error(errorMessage);
       }
+      
+      // Trigger download
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `certificate_${data.certificateNumber}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
     }
     
-    // Generate a blob from the PDF
-    const blob = pdf.output('blob');
-    
-    // Create a download link
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    
-    // Set the filename with .pdf extension
-    a.download = 'certificate.pdf';
-    a.href = url;
-    
-    // Append to body, click and remove
-    document.body.appendChild(a);
-    a.click();
-    
-    // Cleanup
-    setTimeout(() => {
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    }, 100);
-    
-    setStatus('PDF generated: certificate.pdf');
-    
+    setStatus('PDF generated successfully!');
   } catch (error) {
-    console.error('Error generating PDF:', error);
-    setStatus('Error generating PDF. Please try again.');
+    console.error('Error:', error);
+    setStatus('Error: ' + error.message);
   }
 }
 
 // Event handlers
 
-templateInput.addEventListener('change', async (e) => {
-  const file = e.target.files?.[0];
-  if (!file) {
-    templateArrayBuffer = null;
-    templateValid = false;
-    ensureGenerateEnabled();
-    return;
-  }
+// Load template when the page loads
+async function loadTemplate() {
   try {
-    // Basic validation: ensure .docx extension
-    const name = (file.name || '').toLowerCase();
-    if (!name.endsWith('.docx')) {
-      templateArrayBuffer = null;
-      templateValid = false;
-      setStatus('Please upload a .docx file (Word OpenXML). .doc files are not supported.');
-      ensureGenerateEnabled();
-      return;
+    setStatus('Loading template...');
+    const templatePath = '/docx-templates/New%20Liferaft%20certificate%20-%20(15%20PERSON)%20DOLPHIN%20NO%20-06-17054.docx';
+    const response = await fetch(templatePath);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-
-    setStatus('Reading template...');
-    templateArrayBuffer = await readFileAsArrayBuffer(file);
+    templateArrayBuffer = await response.arrayBuffer();
     templateValid = true;
-    setStatus('Template loaded.');
+    setStatus('Template loaded successfully.');
   } catch (err) {
-    console.error(err);
-    setStatus('Failed to read template. Check console.');
-    templateArrayBuffer = null;
+    console.error('Error loading template:', err);
+    setStatus('Failed to load template. Please check console for details.');
     templateValid = false;
   }
   ensureGenerateEnabled();
-});
+}
+
+// Load template when the page loads
+loadTemplate();
 
 buildFormsBtn.addEventListener('click', () => {
   const count = Math.max(1, Math.min(50, Number(countInput.value) || 1));
@@ -315,12 +271,20 @@ generateBtn.addEventListener('click', async () => {
     for (let i = 0; i < formCount; i++) {
       const form = document.getElementById(`certificate-form-${i}`);
       if (!form) continue;
-      certificates.push(collectCertificateData(i));
+      const certData = collectCertificateData(i);
+      if (Object.keys(certData).length > 0) {
+        certificates.push(certData);
+      }
+    }
+
+    if (certificates.length === 0) {
+      setStatus('No valid certificate data found.');
+      return;
     }
 
     // Generate PDF
     setStatus('Generating PDF...');
-    await downloadPDF(certificates, 'certificate');
+    await downloadPDF(certificates);
     setStatus('PDF generated successfully!');
   } catch (error) {
     console.error('Error generating PDF:', error);
