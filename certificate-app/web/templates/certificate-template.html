@@ -3,91 +3,506 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Certificate</title>
+  <title>Liferaft Certificate of Inspection</title>
   <style>
     @page {
       size: A4;
-      margin: 0;
+      margin: 10mm;
     }
     body {
       margin: 0;
-      padding: 20mm;
+      padding: 0;
       font-family: Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.4;
       color: #333;
+      font-size: 10pt;
+      background: #fff;
     }
     .certificate {
-      border: 2px solid #000;
-      padding: 20mm;
-      min-height: 277mm;
+      margin: 0 auto;
+      padding: 15mm;
+      max-width: 210mm;
+      min-height: 297mm;
       box-sizing: border-box;
       position: relative;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10mm;
+      padding-bottom: 5mm;
+      border-bottom: 2px solid #333;
     }
     .header h1 {
-      margin: 0;
-      font-size: 24pt;
+      margin: 0 0 5px 0;
+      font-size: 16pt;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      color: #003366;
     }
-    .content {
-      margin: 20px 0;
+    .header .subtitle {
+      font-size: 10pt;
+      color: #666;
+      margin: 5px 0;
     }
+    .header .certificate-number {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 11pt;
+    }
+    
+    .section {
+      margin-bottom: 8mm;
+      page-break-inside: avoid;
+    }
+    .section-header {
+      background-color: #f0f0f0;
+      padding: 3px 10px;
+      font-weight: bold;
+      border-left: 4px solid #003366;
+      margin: 12px 0 8px 0;
+      font-size: 10pt;
+      color: #003366;
+    }
+    
     .field {
-      margin-bottom: 15px;
       display: flex;
+      margin-bottom: 2px;
+      font-size: 9pt;
     }
     .field-label {
-      font-weight: bold;
-      min-width: 200px;
+      font-weight: 600;
+      min-width: 180px;
+      padding-right: 10px;
     }
     .field-value {
       flex: 1;
+      border-bottom: 1px dotted #ccc;
+      min-height: 1.3em;
     }
+    
+    .status-ok {
+      color: #2e7d32;
+    }
+    .status-not-ok {
+      color: #d32f2f;
+    }
+    
+    .columns-2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .column {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .signature-area {
+      margin-top: 15mm;
+      display: flex;
+      justify-content: space-between;
+    }
+    .signature {
+      text-align: center;
+      width: 45%;
+    }
+    .signature-line {
+      width: 80%;
+      border-top: 1px solid #333;
+      margin: 5px auto;
+      height: 1px;
+    }
+    
     .footer {
       position: absolute;
-      bottom: 20mm;
-      left: 20mm;
-      right: 20mm;
+      bottom: 10mm;
+      left: 15mm;
+      right: 15mm;
       text-align: center;
-      font-size: 10pt;
+      font-size: 8pt;
       color: #666;
+      border-top: 1px solid #ddd;
+      padding-top: 3mm;
+    }
+    
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+      }
+      .certificate {
+        margin: 0;
+        padding: 15mm;
+        box-shadow: none;
+      }
+      .no-print {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
   <div class="certificate">
     <div class="header">
-      <h1>Certificate of Inspection</h1>
-      <div class="certificate-number">Certificate No: {{certificateNumber}}</div>
+      <h1>LIFERAFT CERTIFICATE OF INSPECTION</h1>
+      <div class="subtitle">IN ACCORDANCE WITH SOLAS 74/83 AS AMENDED, LSA CODE AND RESOLUTION A.689(17)</div>
+      <div class="certificate-number">CERTIFICATE NO: {{header.certificateNo}}</div>
     </div>
     
-    <div class="content">
-      <div class="field">
-        <div class="field-label">Vessel Name:</div>
-        <div class="field-value">{{vesselName}}</div>
+    <!-- Vessel & Owner Details -->
+    <div class="section">
+      <div class="section-header">VESSEL & OWNER DETAILS</div>
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Vessel Name:</div>
+            <div class="field-value">{{header.vesselName}}</div>
+          </div>
+          <div class="field">
+            <div class="field-label">IMO No:</div>
+            <div class="field-value">{{header.imoNo}}</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Owner Name:</div>
+            <div class="field-value">{{header.ownerName}}</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Manufactured By:</div>
+            <div class="field-value">{{header.manufacturedBy}}</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Manufacturing Date:</div>
+            <div class="field-value">{{header.manufacturingDate}}</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Liferaft Type:</div>
+            <div class="field-value">{{header.type}}</div>
+          </div>
+        </div>
       </div>
       
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Liferaft Serial No:</div>
+            <div class="field-value">{{header.liferaftSerialNo}}</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Capacity (Persons):</div>
+            <div class="field-value">{{header.capacity}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Service Details -->
+    <div class="section">
+      <div class="section-header">SERVICE DETAILS</div>
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Date of Service:</div>
+            <div class="field-value">{{header.dateOfService}}</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Last Service Date:</div>
+            <div class="field-value">{{header.lastServiceDate}}</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Next Service Due:</div>
+            <div class="field-value">{{header.nextServiceDue}}</div>
+          </div>
+          <div class="field">
+            <div class="field-label">SOLAS:</div>
+            <div class="field-value">{{otherInfo.solas}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Buoyancy Section -->
+    <div class="section">
+      <div class="section-header">BUOYANCY - STATUS</div>
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Arches:</div>
+            <div class="field-value {{#if buoyancy.arches}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if buoyancy.arches}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Boarding Ramp/Ladder:</div>
+            <div class="field-value {{#if buoyancy.boardingRampLadder}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if buoyancy.boardingRampLadder}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Centre Strut:</div>
+            <div class="field-value {{#if buoyancy.centreStrut}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if buoyancy.centreStrut}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Inflate/Deflate Valve:</div>
+            <div class="field-value {{#if buoyancy.inflateDeflateValve}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if buoyancy.inflateDeflateValve}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Lifeline:</div>
+            <div class="field-value {{#if buoyancy.lifeline}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if buoyancy.lifeline}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Lifeline Patch:</div>
+            <div class="field-value {{#if buoyancy.lifelinePatch}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if buoyancy.lifelinePatch}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Inflatable Equipment Section -->
+    <div class="section">
+      <div class="section-header">INFLATABLE EQUIPMENT - STATUS</div>
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Firing Cable:</div>
+            <div class="field-value {{#if inflatable.firingCable}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if inflatable.firingCable}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Conduit:</div>
+            <div class="field-value {{#if inflatable.conduit}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if inflatable.conduit}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Operating Handle:</div>
+            <div class="field-value {{#if inflatable.operatingHandle}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if inflatable.operatingHandle}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">High Pressure Hose:</div>
+            <div class="field-value {{#if inflatable.highPressureHose}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if inflatable.highPressureHose}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">T-Connection:</div>
+            <div class="field-value {{#if inflatable.tConnection}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if inflatable.tConnection}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Container:</div>
+            <div class="field-value {{#if inflatable.container}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if inflatable.container}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Equipment Section -->
+    <div class="section">
+      <div class="section-header">EQUIPMENT - STATUS</div>
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Emergency Equipment Drum/Valise:</div>
+            <div class="field-value {{#if equipment.emergencyEquipmentDrumValise}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if equipment.emergencyEquipmentDrumValise}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Bailers:</div>
+            <div class="field-value {{#if equipment.bailers}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if equipment.bailers}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Bellow:</div>
+            <div class="field-value {{#if equipment.bellow}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if equipment.bellow}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Knife:</div>
+            <div class="field-value {{#if equipment.knife}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if equipment.knife}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Paddles:</div>
+            <div class="field-value {{#if equipment.paddles}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if equipment.paddles}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Thermal Protective Aids:</div>
+            <div class="field-value {{#if equipment.thermalProtectiveAids}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if equipment.thermalProtectiveAids}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Hand Flares Section -->
+    <div class="section">
+      <div class="section-header">HAND FLARES</div>
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Quantity:</div>
+            <div class="field-value">{{handFlares.quantity}}</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Expiry Date:</div>
+            <div class="field-value">{{handFlares.expiry}}</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Lot No:</div>
+            <div class="field-value">{{handFlares.lotNo}}</div>
+          </div>
+          <div class="field">
+            <div class="field-label">Make:</div>
+            <div class="field-value">{{handFlares.make}}</div>
+          </div>
+        </div>
+      </div>
       <div class="field">
-        <div class="field-label">Manufactured By:</div>
-        <div class="field-value">{{manufacturedBy}}</div>
+        <div class="field-label">Status:</div>
+        <div class="field-value {{#if handFlares.status}}status-ok{{else}}status-not-ok{{/if}}">
+          {{#if handFlares.status}}✓ OK{{else}}✗ Not OK{{/if}}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Canopy Section -->
+    <div class="section">
+      <div class="section-header">CANOPY</div>
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Outer Canopy:</div>
+            <div class="field-value {{#if canopy.outerCanopy}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if canopy.outerCanopy}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Inner Canopy:</div>
+            <div class="field-value {{#if canopy.innerCanopy}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if canopy.innerCanopy}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Entrance Flap:</div>
+            <div class="field-value {{#if canopy.entranceFlap}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if canopy.entranceFlap}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Viewing Port:</div>
+            <div class="field-value {{#if canopy.viewingPort}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if canopy.viewingPort}}✓{{else}}✗{{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Test Results Section -->
+    <div class="section">
+      <div class="section-header">TEST RESULTS</div>
+      <div class="columns-2">
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Upper Buoyancy:</div>
+            <div class="field-value {{#if testResults.upperBuoyancy}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if testResults.upperBuoyancy}}✓ OK{{else}}✗ Not OK{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Gas Inflation:</div>
+            <div class="field-value {{#if testResults.gasInflation}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if testResults.gasInflation}}✓ OK{{else}}✗ Not OK{{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <div class="field-label">Floor Seam:</div>
+            <div class="field-value {{#if testResults.floorSeam}}status-ok{{else}}status-not-ok{{/if}}">
+              {{#if testResults.floorSeam}}✓ OK{{else}}✗ Not OK{{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Room Temperature:</div>
+            <div class="field-value">{{testResults.roomTemperature}} °C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Final Certification -->
+    <div class="section">
+      <div class="section-header">FINAL CERTIFICATION</div>
+      <div class="field">
+        <div class="field-label">General Comments:</div>
+        <div class="field-value">{{finalCertification.generalComments}}</div>
       </div>
       
-      <div class="field">
-        <div class="field-label">Owner Name:</div>
-        <div class="field-value">{{ownerName}}</div>
+      <div class="signature-area">
+        <div class="signature">
+          <div class="signature-line"></div>
+          <div>Competent Person's Name</div>
+          <div>{{finalCertification.competentPersonName}}</div>
+        </div>
+        <div class="signature">
+          <div class="signature-line"></div>
+          <div>Date of Inspection: {{inspectionDate}}</div>
+        </div>
       </div>
       
-      <!-- Add more fields as needed -->
-      
+      <div class="field" style="margin-top: 10mm;">
+        <div class="field-label">Company Name:</div>
+        <div class="field-value">{{finalCertification.companyName}}</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Designation/Authorization:</div>
+        <div class="field-value">{{finalCertification.competentPersonDesignationAuthorization}}</div>
+      </div>
     </div>
     
     <div class="footer">
-      <p>This is to certify that the above details are correct at the time of inspection.</p>
-      <p>Date: {{inspectionDate}}</p>
+      <p>This is to certify that the above liferaft has been inspected, tested and found to be in compliance with the applicable regulations.</p>
+      <p>This certificate is valid until the next scheduled service date.</p>
     </div>
   </div>
 </body>
