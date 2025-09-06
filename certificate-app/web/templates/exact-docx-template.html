@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liferaft Certificate - Exact DOCX Match</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 25mm 20mm 20mm 20mm;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 10pt;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            background: #fff;
+        }
+        
+        .certificate {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 15pt;
+            border-bottom: 1.5pt solid #000;
+            padding-bottom: 10pt;
+        }
+        
+        .header h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 0 0 6pt 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+        
+        .header .subtitle {
+            font-size: 9pt;
+            margin: 3pt 0;
+            font-style: normal;
+        }
+        
+        .cert-number {
+            font-size: 11pt;
+            font-weight: bold;
+            margin: 8pt 0 0 0;
+        }
+        
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8pt 0;
+            border: 1pt solid #000;
+        }
+        
+        .main-table td, .main-table th {
+            border: 1pt solid #000;
+            padding: 4pt 6pt;
+            vertical-align: top;
+            font-size: 9pt;
+        }
+        
+        .main-table th {
+            background-color: #D9D9D9;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .label-cell {
+            background-color: #F2F2F2;
+            font-weight: bold;
+            width: 25%;
+            text-align: left;
+        }
+        
+        .value-cell {
+            width: 25%;
+            min-height: 14pt;
+        }
+        
+        .section-header {
+            background-color: #BFBFBF;
+            font-weight: bold;
+            text-align: center;
+            font-size: 10pt;
+            padding: 6pt;
+        }
+        
+        .status-pass {
+            background-color: #C6EFCE;
+            color: #006100;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .status-fail {
+            background-color: #FFC7CE;
+            color: #9C0006;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .signature-section {
+            margin-top: 15pt;
+        }
+        
+        .signature-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1pt solid #000;
+        }
+        
+        .signature-table td {
+            border: 1pt solid #000;
+            padding: 8pt;
+            vertical-align: top;
+            font-size: 9pt;
+        }
+        
+        .signature-line {
+            border-top: 1pt solid #000;
+            margin: 15pt 0 3pt 0;
+            width: 150pt;
+        }
+        
+        .footer-text {
+            margin-top: 10pt;
+            text-align: center;
+            font-size: 8pt;
+            font-style: italic;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <!-- Header -->
+        <div class="header">
+            <h1>LIFERAFT CERTIFICATE</h1>
+            <div class="subtitle">Certificate of Inspection and Testing</div>
+            <div class="subtitle">In accordance with SOLAS 74/83 as amended and LSA Code</div>
+            <div class="cert-number">Certificate No: {{header.certificateNo}}</div>
+        </div>
+        
+        <!-- Main Certificate Table -->
+        <table class="main-table">
+            <!-- Vessel Information Section -->
+            <tr>
+                <td colspan="4" class="section-header">VESSEL INFORMATION</td>
+            </tr>
+            <tr>
+                <td class="label-cell">VESSEL NAME:</td>
+                <td class="value-cell">{{header.vesselName}}</td>
+                <td class="label-cell">IMO NUMBER:</td>
+                <td class="value-cell">{{header.imoNo}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">OWNER:</td>
+                <td class="value-cell">{{header.ownerName}}</td>
+                <td class="label-cell">VESSEL TYPE:</td>
+                <td class="value-cell">{{header.type}}</td>
+            </tr>
+            
+            <!-- Liferaft Information Section -->
+            <tr>
+                <td colspan="4" class="section-header">LIFERAFT INFORMATION</td>
+            </tr>
+            <tr>
+                <td class="label-cell">MANUFACTURER:</td>
+                <td class="value-cell">{{header.manufacturedBy}}</td>
+                <td class="label-cell">SERIAL NUMBER:</td>
+                <td class="value-cell">{{header.liferaftSerialNo}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">CAPACITY:</td>
+                <td class="value-cell">{{header.capacity}} PERSONS</td>
+                <td class="label-cell">TYPE:</td>
+                <td class="value-cell">SOLAS A PACK</td>
+            </tr>
+            <tr>
+                <td class="label-cell">MFG DATE:</td>
+                <td class="value-cell">{{header.manufacturingDate}}</td>
+                <td class="label-cell">LAST SERVICE:</td>
+                <td class="value-cell">{{header.lastServiceDate}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">SERVICE DATE:</td>
+                <td class="value-cell">{{header.dateOfService}}</td>
+                <td class="label-cell">NEXT DUE:</td>
+                <td class="value-cell">{{header.nextServiceDue}}</td>
+            </tr>
+            
+            <!-- Inspection Results Section -->
+            <tr>
+                <td colspan="4" class="section-header">INSPECTION AND TEST RESULTS</td>
+            </tr>
+            
+            <!-- Buoyancy Chamber -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">BUOYANCY CHAMBER</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Arches:</td>
+                <td class="{{#if buoyancy.arches}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if buoyancy.arches}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">Lifeline:</td>
+                <td class="{{#if buoyancy.lifeline}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if buoyancy.lifeline}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">Boarding Ladder:</td>
+                <td class="{{#if buoyancy.boardingRampLadder}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if buoyancy.boardingRampLadder}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">Relief Valves:</td>
+                <td class="{{#if buoyancy.reliefValves}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if buoyancy.reliefValves}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">Centre Strut:</td>
+                <td class="{{#if buoyancy.centreStrut}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if buoyancy.centreStrut}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">Gas Inflation:</td>
+                <td class="{{#if buoyancy.gasInflationValve}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if buoyancy.gasInflationValve}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            
+            <!-- Equipment -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">EQUIPMENT</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Emergency Pack:</td>
+                <td class="{{#if equipment.emergencyEquipmentDrumValise}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if equipment.emergencyEquipmentDrumValise}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">Bailers:</td>
+                <td class="{{#if equipment.bailers}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if equipment.bailers}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">Knife:</td>
+                <td class="{{#if equipment.knife}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if equipment.knife}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">Paddles:</td>
+                <td class="{{#if equipment.paddles}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if equipment.paddles}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">Thermal Aids:</td>
+                <td class="{{#if equipment.thermalProtectiveAids}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if equipment.thermalProtectiveAids}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">Torch:</td>
+                <td class="{{#if equipment.torch}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if equipment.torch}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            
+            <!-- Working Pressure Test -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">WORKING PRESSURE TEST</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Start On:</td>
+                <td class="value-cell">{{workingPressureTest.startOn}}</td>
+                <td class="label-cell">Pr. Water (Inches):</td>
+                <td class="value-cell">{{workingPressureTest.pressureWaterInchesStart}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Time Off:</td>
+                <td class="value-cell">{{workingPressureTest.timeOff}}</td>
+                <td class="label-cell">Pr. Water (Inches):</td>
+                <td class="value-cell">{{workingPressureTest.pressureWaterInchesEnd}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Valve Reset (Inches):</td>
+                <td class="value-cell">{{workingPressureTest.valveResetInches}}</td>
+                <td class="label-cell">Tests:</td>
+                <td class="value-cell">{{workingPressureTest.tests}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Remarks:</td>
+                <td colspan="3" class="value-cell">{{workingPressureTest.remarks}}</td>
+            </tr>
+            
+            <!-- Lower Buoyancy Test -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">LOWER BUOYANCY TEST</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Start On:</td>
+                <td class="value-cell">{{lowerBuoyancyTest.startOn}}</td>
+                <td class="label-cell">Pr. Water (Inches):</td>
+                <td class="value-cell">{{lowerBuoyancyTest.pressureWaterInches}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Time Off:</td>
+                <td class="value-cell">{{lowerBuoyancyTest.timeOff}}</td>
+                <td class="label-cell">Pr. Water (Inches 2):</td>
+                <td class="value-cell">{{lowerBuoyancyTest.pressureWaterInches2}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Valve Reset (Inches):</td>
+                <td colspan="3" class="value-cell">{{lowerBuoyancyTest.valveResetInches}}</td>
+            </tr>
+            
+            <!-- Floor Test -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">FLOOR TEST</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Start On:</td>
+                <td class="value-cell">{{floorTest.startOn}}</td>
+                <td class="label-cell">Pr. Water (Inches):</td>
+                <td class="value-cell">{{floorTest.pressureWaterInches}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Time Off:</td>
+                <td class="value-cell">{{floorTest.timeOff}}</td>
+                <td class="label-cell">Pr. Water (Inches 2):</td>
+                <td class="value-cell">{{floorTest.pressureWaterInches2}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Valve Reset (Inches):</td>
+                <td colspan="3" class="value-cell">{{floorTest.valveResetInches}}</td>
+            </tr>
+            
+            <!-- Room Temp Test -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">ROOM TEMP TEST</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Start On:</td>
+                <td class="value-cell">{{roomTempTest.startOn}}</td>
+                <td class="label-cell">Pr. Water (Inches):</td>
+                <td class="value-cell">{{roomTempTest.pressureWaterInches}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Time Off:</td>
+                <td class="value-cell">{{roomTempTest.timeOff}}</td>
+                <td class="label-cell">Pr. Water (Inches 2):</td>
+                <td class="value-cell">{{roomTempTest.pressureWaterInches2}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Valve Reset (Inches):</td>
+                <td colspan="3" class="value-cell">{{roomTempTest.valveResetInches}}</td>
+            </tr>
+            
+            <!-- Test Results -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">TEST RESULTS</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Upper Buoyancy:</td>
+                <td class="{{#if testResults.upperBuoyancy}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if testResults.upperBuoyancy}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">Gas Inflation:</td>
+                <td class="{{#if testResults.gasInflation}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if testResults.gasInflation}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">Lower Buoyancy:</td>
+                <td class="{{#if testResults.lowerBuoyancy}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if testResults.lowerBuoyancy}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">N.A.P.:</td>
+                <td class="{{#if testResults.nap}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if testResults.nap}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">Floor:</td>
+                <td class="{{#if testResults.floor}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if testResults.floor}}PASS{{else}}FAIL{{/if}}
+                </td>
+                <td class="label-cell">Floor Seam:</td>
+                <td class="{{#if testResults.floorSeam}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if testResults.floorSeam}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td class="label-cell">Room Temp:</td>
+                <td class="value-cell">{{testResults.roomTemperature}}°C</td>
+                <td class="label-cell">D/L O/Load:</td>
+                <td class="{{#if testResults.dlOverload}}status-pass{{else}}status-fail{{/if}}">
+                    {{#if testResults.dlOverload}}PASS{{else}}FAIL{{/if}}
+                </td>
+            </tr>
+            
+            <!-- Floor Section -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">FLOOR</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Outer Floor:</td>
+                <td class="value-cell">{{floor.outerFloor}}</td>
+                <td class="label-cell">Inner Floor:</td>
+                <td class="value-cell">{{floor.innerFloor}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Inflate/Deflate Valve:</td>
+                <td class="value-cell">{{floor.inflateDeflateValve}}</td>
+                <td class="label-cell">Aerial Support:</td>
+                <td class="value-cell">{{floor.aerialSupport}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Cylinder Pocket:</td>
+                <td class="value-cell">{{floor.cylinderPocket}}</td>
+                <td class="label-cell">Water Pocket:</td>
+                <td class="value-cell">{{floor.waterPocket}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Ern Pack Tapes:</td>
+                <td class="value-cell">{{floor.ernPackTapes}}</td>
+                <td class="label-cell">Rescue Line:</td>
+                <td class="value-cell">{{floor.rescueLine}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Righting Strap:</td>
+                <td class="value-cell">{{floor.rightingStrap}}</td>
+                <td class="label-cell">Polythene Liner:</td>
+                <td class="value-cell">{{floor.polytheneLiner}}</td>
+            </tr>
+            
+            <!-- Other Info -->
+            <tr>
+                <td class="label-cell">Length of Painter:</td>
+                <td class="value-cell">{{otherInfo.lengthOfPainter}}</td>
+                <td class="label-cell">Max. Stowage:</td>
+                <td class="value-cell">{{otherInfo.maxStowage}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Emergency Pack Type:</td>
+                <td class="value-cell">{{otherInfo.emergencyPackType}}</td>
+                <td class="label-cell">SOLAS:</td>
+                <td class="value-cell">{{otherInfo.solas}}</td>
+            </tr>
+            
+            <!-- CO2 Cylinders -->
+            <tr>
+                <th colspan="4" style="background-color: #E7E6E6; font-size: 9pt;">CO2 CYLINDERS</th>
+            </tr>
+            <tr>
+                <td class="label-cell">Quantity:</td>
+                <td class="value-cell">{{co2Cylinders.quantity}}</td>
+                <td class="label-cell">Serial No:</td>
+                <td class="value-cell">{{co2Cylinders.serialNo}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Hydro Test:</td>
+                <td class="value-cell">{{co2Cylinders.hydroTestDate}}</td>
+                <td class="label-cell">Weight:</td>
+                <td class="value-cell">{{co2Cylinders.actualWeightKg}} kg</td>
+            </tr>
+        </table>
+        
+        <!-- Certification Section -->
+        <div class="signature-section">
+            <table class="signature-table">
+                <tr>
+                    <td colspan="2" class="section-header">CERTIFICATION</td>
+                </tr>
+                <tr>
+                    <td style="width: 60%;">
+                        <strong>REMARKS/COMMENTS:</strong><br>
+                        {{finalCertification.generalComments}}<br><br>
+                        This is to certify that the above liferaft has been inspected, tested and found to be in compliance with the applicable SOLAS regulations and LSA Code requirements.
+                    </td>
+                    <td style="width: 40%; text-align: center;">
+                        <div class="signature-line"></div>
+                        <strong>COMPETENT PERSON</strong><br>
+                        {{finalCertification.competentPersonName}}<br><br>
+                        <strong>DATE:</strong> {{inspectionDate}}<br><br>
+                        <strong>COMPANY:</strong><br>
+                        {{finalCertification.companyName}}<br>
+                        {{finalCertification.competentPersonDesignationAuthorization}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="footer-text">
+            This certificate is valid until: {{header.nextServiceDue}}
+        </div>
+    </div>
+</body>
+</html>

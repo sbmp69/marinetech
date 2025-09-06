@@ -151,7 +151,7 @@ async function readFileAsArrayBuffer(file) {
 
 // Load HTML template
 async function loadHtmlTemplate() {
-  const response = await fetch('/templates/certificate-template.html');
+  const response = await fetch('/templates/exact-docx.html');
   if (!response.ok) {
     console.error('Error loading template:', response.status, response.statusText);
     throw new Error('Failed to load template');
@@ -203,16 +203,31 @@ async function downloadPDF(certificates) {
         throw new Error(errorMessage);
       }
       
-      // Trigger download
-      const blob = await response.blob();
+      // Create a simple, clean filename
+      const vesselName = data.vesselName || 'Unknown';
+      const certNumber = data.certificateNumber || Date.now();
+      const cleanVesselName = vesselName.replace(/[^a-zA-Z0-9]/g, '_');
+      const filename = `Certificate_${cleanVesselName}_${certNumber}.pdf`;
+      
+      // Create a blob URL for the PDF with explicit PDF type
+      const blob = new Blob([await response.arrayBuffer()], { type: 'application/pdf' });
       const url = window.URL.createObjectURL(blob);
+      
+      // Create and trigger download with explicit attributes
       const a = document.createElement('a');
+      a.style.display = 'none';
       a.href = url;
-      a.download = `certificate_${data.certificateNumber}.pdf`;
+      a.download = filename;
+      a.setAttribute('download', filename);
+      a.type = 'application/pdf';
       document.body.appendChild(a);
       a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
+      
+      // Cleanup
+      setTimeout(() => {
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }, 100);
     }
     
     setStatus('PDF generated successfully!');

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "pdfkit": "^0.17.2",
     "puppeteer": "^24.19.0"
   }
 }

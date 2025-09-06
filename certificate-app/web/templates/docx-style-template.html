@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liferaft Certificate - DOCX Style</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 20mm;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 9pt;
+            line-height: 1.1;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            background: #fff;
+        }
+        
+        .certificate {
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 0;
+            background: #fff;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 8px;
+        }
+        
+        .header h1 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 0 0 4px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .header .subtitle {
+            font-size: 8pt;
+            margin: 2px 0;
+            font-style: italic;
+        }
+        
+        .cert-number {
+            font-size: 10pt;
+            font-weight: bold;
+            margin: 4px 0;
+        }
+        
+        .section {
+            margin: 6px 0;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 9pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border: 1px solid #000;
+            margin: 4px 0 2px 0;
+        }
+        
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 3px 0;
+        }
+        
+        .info-table td {
+            border: 1px solid #000;
+            padding: 2px 4px;
+            vertical-align: top;
+            font-size: 8pt;
+        }
+        
+        .info-table .label {
+            font-weight: bold;
+            background-color: #f8f8f8;
+            width: 35%;
+        }
+        
+        .info-table .value {
+            width: 65%;
+            min-height: 12px;
+        }
+        
+        .two-column {
+            display: table;
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .column {
+            display: table-cell;
+            width: 50%;
+            vertical-align: top;
+            padding-right: 10px;
+        }
+        
+        .column:last-child {
+            padding-right: 0;
+            padding-left: 10px;
+        }
+        
+        .status-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2px 0;
+        }
+        
+        .status-table th,
+        .status-table td {
+            border: 1px solid #000;
+            padding: 1px 3px;
+            text-align: center;
+            font-size: 7pt;
+        }
+        
+        .status-table th {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+        
+        .status-ok {
+            background-color: #d4edda;
+            color: #155724;
+            font-weight: bold;
+        }
+        
+        .status-not-ok {
+            background-color: #f8d7da;
+            color: #721c24;
+            font-weight: bold;
+        }
+        
+        .signature-section {
+            margin-top: 8px;
+            page-break-inside: avoid;
+        }
+        
+        .signature-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .signature-table td {
+            border: 1px solid #000;
+            padding: 4px 6px;
+            vertical-align: top;
+            font-size: 7pt;
+        }
+        
+        .signature-line {
+            border-top: 1px solid #000;
+            margin: 8px 0 2px 0;
+            width: 120px;
+        }
+        
+        .footer {
+            margin-top: 6px;
+            text-align: center;
+            font-size: 7pt;
+            font-style: italic;
+            border-top: 1px solid #000;
+            padding-top: 4px;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <!-- Header -->
+        <div class="header">
+            <h1>LIFERAFT CERTIFICATE OF INSPECTION</h1>
+            <div class="subtitle">In accordance with SOLAS 74/83 as amended, LSA Code and Resolution A.689(17)</div>
+            <div class="cert-number">CERTIFICATE NO: {{header.certificateNo}}</div>
+        </div>
+        
+        <!-- Vessel Information -->
+        <div class="section">
+            <div class="section-title">VESSEL INFORMATION</div>
+            <table class="info-table">
+                <tr>
+                    <td class="label">VESSEL NAME:</td>
+                    <td class="value">{{header.vesselName}}</td>
+                    <td class="label">IMO NO:</td>
+                    <td class="value">{{header.imoNo}}</td>
+                </tr>
+                <tr>
+                    <td class="label">OWNER NAME:</td>
+                    <td class="value">{{header.ownerName}}</td>
+                    <td class="label">VESSEL TYPE:</td>
+                    <td class="value">{{header.type}}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Liferaft Information -->
+        <div class="section">
+            <div class="section-title">LIFERAFT INFORMATION</div>
+            <table class="info-table">
+                <tr>
+                    <td class="label">MANUFACTURED BY:</td>
+                    <td class="value">{{header.manufacturedBy}}</td>
+                    <td class="label">SERIAL NO:</td>
+                    <td class="value">{{header.liferaftSerialNo}}</td>
+                </tr>
+                <tr>
+                    <td class="label">MANUFACTURING DATE:</td>
+                    <td class="value">{{header.manufacturingDate}}</td>
+                    <td class="label">CAPACITY:</td>
+                    <td class="value">{{header.capacity}} PERSONS</td>
+                </tr>
+                <tr>
+                    <td class="label">LAST SERVICE DATE:</td>
+                    <td class="value">{{header.lastServiceDate}}</td>
+                    <td class="label">NEXT SERVICE DUE:</td>
+                    <td class="value">{{header.nextServiceDue}}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Inspection Results -->
+        <div class="section">
+            <div class="section-title">INSPECTION RESULTS</div>
+            
+            <!-- Buoyancy -->
+            <h4 style="margin: 4px 0 2px 0; font-size: 8pt; font-weight: bold;">BUOYANCY CHAMBER</h4>
+            <table class="status-table">
+                <thead>
+                    <tr>
+                        <th>COMPONENT</th>
+                        <th>STATUS</th>
+                        <th>COMPONENT</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Arches</td>
+                        <td class="{{#if buoyancy.arches}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if buoyancy.arches}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                        <td>Lifeline</td>
+                        <td class="{{#if buoyancy.lifeline}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if buoyancy.lifeline}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Boarding Ramp/Ladder</td>
+                        <td class="{{#if buoyancy.boardingRampLadder}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if buoyancy.boardingRampLadder}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                        <td>Relief Valves</td>
+                        <td class="{{#if buoyancy.reliefValves}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if buoyancy.reliefValves}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Centre Strut</td>
+                        <td class="{{#if buoyancy.centreStrut}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if buoyancy.centreStrut}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                        <td>Gas Inflation Valve</td>
+                        <td class="{{#if buoyancy.gasInflationValve}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if buoyancy.gasInflationValve}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Equipment -->
+            <h4 style="margin: 4px 0 2px 0; font-size: 8pt; font-weight: bold;">EQUIPMENT</h4>
+            <table class="status-table">
+                <thead>
+                    <tr>
+                        <th>ITEM</th>
+                        <th>STATUS</th>
+                        <th>ITEM</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Emergency Equipment</td>
+                        <td class="{{#if equipment.emergencyEquipmentDrumValise}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if equipment.emergencyEquipmentDrumValise}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                        <td>Bailers</td>
+                        <td class="{{#if equipment.bailers}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if equipment.bailers}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Knife</td>
+                        <td class="{{#if equipment.knife}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if equipment.knife}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                        <td>Paddles</td>
+                        <td class="{{#if equipment.paddles}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if equipment.paddles}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thermal Protective Aids</td>
+                        <td class="{{#if equipment.thermalProtectiveAids}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if equipment.thermalProtectiveAids}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                        <td>Torch</td>
+                        <td class="{{#if equipment.torch}}status-ok{{else}}status-not-ok{{/if}}">
+                            {{#if equipment.torch}}OK{{else}}NOT OK{{/if}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Test Results -->
+            <h4 style="margin: 4px 0 2px 0; font-size: 8pt; font-weight: bold;">PRESSURE TEST RESULTS</h4>
+            <table class="info-table">
+                <tr>
+                    <td class="label">UPPER BUOYANCY:</td>
+                    <td class="value {{#if testResults.upperBuoyancy}}status-ok{{else}}status-not-ok{{/if}}">
+                        {{#if testResults.upperBuoyancy}}PASS{{else}}FAIL{{/if}}
+                    </td>
+                    <td class="label">LOWER BUOYANCY:</td>
+                    <td class="value {{#if testResults.lowerBuoyancy}}status-ok{{else}}status-not-ok{{/if}}">
+                        {{#if testResults.lowerBuoyancy}}PASS{{else}}FAIL{{/if}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">FLOOR:</td>
+                    <td class="value {{#if testResults.floor}}status-ok{{else}}status-not-ok{{/if}}">
+                        {{#if testResults.floor}}PASS{{else}}FAIL{{/if}}
+                    </td>
+                    <td class="label">ROOM TEMPERATURE:</td>
+                    <td class="value">{{testResults.roomTemperature}}°C</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- CO2 Cylinders -->
+        <div class="section">
+            <div class="section-title">CO2 CYLINDERS</div>
+            <table class="info-table">
+                <tr>
+                    <td class="label">QUANTITY:</td>
+                    <td class="value">{{co2Cylinders.quantity}}</td>
+                    <td class="label">SERIAL NO:</td>
+                    <td class="value">{{co2Cylinders.serialNo}}</td>
+                </tr>
+                <tr>
+                    <td class="label">HYDRO TEST DATE:</td>
+                    <td class="value">{{co2Cylinders.hydroTestDate}}</td>
+                    <td class="label">ACTUAL WEIGHT:</td>
+                    <td class="value">{{co2Cylinders.actualWeightKg}} KG</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Certification -->
+        <div class="signature-section">
+            <div class="section-title">CERTIFICATION</div>
+            <table class="signature-table">
+                <tr>
+                    <td style="width: 70%;">
+                        <strong>GENERAL COMMENTS:</strong><br>
+                        {{finalCertification.generalComments}}
+                        <br><br>
+                        This is to certify that the above liferaft has been inspected, tested and found to be in compliance with the applicable regulations.
+                    </td>
+                    <td style="width: 30%; text-align: center;">
+                        <div class="signature-line"></div>
+                        <strong>COMPETENT PERSON</strong><br>
+                        {{finalCertification.competentPersonName}}<br><br>
+                        <strong>DATE:</strong> {{inspectionDate}}<br><br>
+                        <strong>COMPANY:</strong><br>
+                        {{finalCertification.companyName}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="footer">
+            This certificate is valid until the next scheduled service date: {{header.nextServiceDue}}
+        </div>
+    </div>
+</body>
+</html>

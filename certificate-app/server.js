@@ -36,6 +36,19 @@ function getContentType(filePath) {
 }
 
 const server = http.createServer(async (req, res) => {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Request-Method', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
+  // Handle preflight request
+  if (req.method === 'OPTIONS') {
+    res.writeHead(200);
+    res.end();
+    return;
+  }
+  
   const parsedUrl = url.parse(req.url);
   const urlPath = decodeURI(parsedUrl.pathname);
   const query = querystring.parse(parsedUrl.query);
@@ -114,9 +127,14 @@ const server = http.createServer(async (req, res) => {
         
         console.log('PDF generated successfully');
         
-        // Send the PDF
-        res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+        // Send the PDF with proper headers
+        const safeFilename = filename.replace(/[^a-zA-Z0-9._-]/g, '_');
+        res.writeHead(200, {
+          'Content-Type': 'application/pdf',
+          'Content-Disposition': `attachment; filename="${safeFilename}"`,
+          'Content-Length': pdf.length,
+          'Cache-Control': 'no-cache'
+        });
         res.end(pdf);
         
       } catch (error) {

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection Report and Test Certificate for Inflatable Liferaft</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1mm;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 8pt;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            background: #fff;
+            width: 100%;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+        
+        .certificate {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 8pt 4pt;
+            font-weight: bold;
+            font-size: 9pt;
+            border: 1pt solid #000;
+            min-height: 22pt;
+        }
+        
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-table td, .main-table th {
+            border: 1pt solid #000;
+            padding: 2pt 2pt;
+            vertical-align: middle;
+            font-size: 7pt;
+            line-height: 1.0;
+            min-height: 10pt;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: center;
+        }
+        
+        .section-header {
+            background-color: #666666;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 9pt;
+            padding: 6pt 4pt;
+            min-height: 20pt;
+        }
+        
+        .label-cell {
+            font-size: 7pt;
+            padding: 2pt 2pt;
+            font-weight: bold;
+            background-color: #f5f5f5;
+            min-height: 10pt;
+            line-height: 1.0;
+            text-align: center;
+            vertical-align: middle;
+            word-wrap: break-word;
+        }
+        
+        .value-cell {
+            font-size: 7pt;
+            padding: 2pt 2pt;
+            min-height: 10pt;
+            line-height: 1.0;
+            text-align: center;
+            vertical-align: middle;
+            word-wrap: break-word;
+        }
+        
+        .vessel-info {
+            width: 16.5%;
+        }
+        
+        .vessel-value {
+            width: 16.5%;
+        }
+        
+        .mfg-info {
+            width: 16.5%;
+        }
+        
+        .mfg-value {
+            width: 16.5%;
+        }
+        
+        .cert-info {
+            width: 16.5%;
+        }
+        
+        .cert-value {
+            width: 16.5%;
+        }
+        
+        .date-info {
+            width: 16.5%;
+        }
+        
+        .date-value {
+            width: 16.5%;
+        }
+        
+        .buoyancy-section {
+            width: 24.5%;
+        }
+        
+        .equipment-section {
+            width: 24.5%;
+        }
+        
+        .status-section {
+            width: 24.5%;
+        }
+        
+        .working-pressure {
+            background-color: #f0f0f0;
+        }
+        
+        .co2-section {
+            background-color: #e8e8e8;
+        }
+        
+        .certification-text {
+            font-size: 6pt;
+            text-align: justify;
+            padding: 4pt;
+            margin: 3pt 0;
+        }
+        
+        .signature-area {
+            text-align: left;
+            font-size: 6pt;
+            padding: 4pt 6pt;
+            margin-top: 3pt;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <!-- Header -->
+        <div class="header">
+            Inspection Report and Test Certificate for Inflatable Liferaft
+        </div>
+        
+        <!-- Main Certificate Table -->
+        <table class="main-table">
+            <!-- Top Row - Vessel Info -->
+            <tr>
+                <td class="label-cell vessel-info">Vessel Name</td>
+                <td class="value-cell vessel-value">{{header.vesselName}}</td>
+                <td class="label-cell mfg-info">Mfg. By</td>
+                <td class="value-cell mfg-value">{{header.manufacturedBy}}</td>
+                <td class="label-cell cert-info">Certificate No.</td>
+                <td class="value-cell cert-value">{{header.certificateNo}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Owner Name</td>
+                <td class="value-cell">{{header.ownerName}}</td>
+                <td class="label-cell">Mfg. Date</td>
+                <td class="value-cell">{{header.manufacturingDate}}</td>
+                <td class="label-cell">Date of Service</td>
+                <td class="value-cell">{{header.dateOfService}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">IMO No.</td>
+                <td class="value-cell">{{header.imoNo}}</td>
+                <td class="label-cell">Type</td>
+                <td class="value-cell">{{header.type}}</td>
+                <td class="label-cell">Next Service Due</td>
+                <td class="value-cell">{{header.nextServiceDue}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Capacity</td>
+                <td class="value-cell">{{header.capacity}}</td>
+                <td class="label-cell">Liferaft Serial No</td>
+                <td class="value-cell">{{header.liferaftSerialNo}}</td>
+                <td class="label-cell">Last Service Date</td>
+                <td class="value-cell">{{header.lastServiceDate}}</td>
+            </tr>
+            
+            <!-- Main Content Row -->
+            <tr>
+                <!-- BUOYANCY Column -->
+                <td class="section-header">BUOYANCY</td>
+                <td class="section-header">STATUS</td>
+                <!-- INFLATABLE EQUIPMENTS Column -->
+                <td class="section-header">INFLATABLE EQUIPMENTS</td>
+                <td class="section-header">STATUS</td>
+                <!-- EQUIPMENTS Column -->
+                <td class="section-header">EQUIPMENTS</td>
+                <td class="section-header">STATUS</td>
+            </tr>
+            
+            <!-- Content Rows -->
+            <tr>
+                <td class="label-cell">Arches</td>
+                <td class="value-cell">{{buoyancy.arches}}</td>
+                <td class="label-cell">Firing Cable</td>
+                <td class="value-cell">{{inflatable.firingCable}}</td>
+                <td class="label-cell">Sea Anchor and Lines</td>
+                <td class="value-cell">{{equipment.seaAnchorAndLines}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Boarding Ramp/Ladder</td>
+                <td class="value-cell">{{buoyancy.boardingRampLadder}}</td>
+                <td class="label-cell">Conduit</td>
+                <td class="value-cell">{{inflatable.conduit}}</td>
+                <td class="label-cell">Torch Cells</td>
+                <td class="value-cell">{{equipment.torchCells}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Centre Strut</td>
+                <td class="value-cell">{{buoyancy.centreStrut}}</td>
+                <td class="label-cell">Operating Handle</td>
+                <td class="value-cell">{{inflatable.operatingHandle}}</td>
+                <td class="label-cell">Torch</td>
+                <td class="value-cell">{{equipment.torch}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Inflate/ Deflate valve</td>
+                <td class="value-cell">{{buoyancy.inflateDeflateValve}}</td>
+                <td class="label-cell">High Pressure Hose</td>
+                <td class="value-cell">{{inflatable.highPressureHose}}</td>
+                <td class="label-cell">Torch Bulb</td>
+                <td class="value-cell">{{equipment.torchBulb}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Lifeline</td>
+                <td class="value-cell">{{buoyancy.lifeline}}</td>
+                <td class="label-cell">T. Connection</td>
+                <td class="value-cell">{{inflatable.tConnection}}</td>
+                <td class="label-cell">Tin Opener</td>
+                <td class="value-cell">{{equipment.tinOpener}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Lifeline Patch</td>
+                <td class="value-cell">{{buoyancy.lifelinePatch}}</td>
+                <td class="label-cell">Deflation Plug Key</td>
+                <td class="value-cell">{{inflatable.deflationPlugKey}}</td>
+                <td class="label-cell">Whistle</td>
+                <td class="value-cell">{{equipment.whistle}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Relief Valves</td>
+                <td class="value-cell">{{buoyancy.reliefValves}}</td>
+                <td class="label-cell">Container</td>
+                <td class="value-cell">{{inflatable.container}}</td>
+                <td class="label-cell">Radar reflector</td>
+                <td class="value-cell">{{equipment.radarReflector}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Towing bridle/Line</td>
+                <td class="value-cell">{{buoyancy.towingBridleLine}}</td>
+                <td class="label-cell">Labels</td>
+                <td class="value-cell">{{inflatable.labels}}</td>
+                <td class="label-cell">Radar reflector Patch</td>
+                <td class="value-cell">{{equipment.radarReflectorPatch}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Gas Inflation V/V</td>
+                <td class="value-cell">{{buoyancy.gasInflationValve}}</td>
+                <td class="label-cell">Painter Pocket/Lines</td>
+                <td class="value-cell">{{inflatable.painterPocketLines}}</td>
+                <td class="label-cell">Hand Flares Qty</td>
+                <td class="value-cell">{{handFlares.quantity}}</td>
+            </tr>
+            
+            <!-- CANOPY Section -->
+            <tr>
+                <td class="section-header">CANOPY</td>
+                <td class="section-header">STATUS</td>
+                <td class="label-cell">Bursting Bands/Straps</td>
+                <td class="value-cell">{{inflatable.burstingBandsStraps}}</td>
+                <td class="label-cell">Hand Flares Expiry</td>
+                <td class="value-cell">{{handFlares.expiry}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Outer Canopy</td>
+                <td class="value-cell">{{canopy.outerCanopy}}</td>
+                <td class="label-cell">Sealing Gaskets</td>
+                <td class="value-cell">{{inflatable.sealingGaskets}}</td>
+                <td class="label-cell">Hand Flares Lot No</td>
+                <td class="value-cell">{{handFlares.lotNo}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Inner Canopy</td>
+                <td class="value-cell">{{canopy.innerCanopy}}</td>
+                <td class="label-cell">Drain Holes</td>
+                <td class="value-cell">{{inflatable.drainHoles}}</td>
+                <td class="label-cell">Parachute Signal Qty</td>
+                <td class="value-cell">{{parachuteSignals.quantity}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Entrance Flap</td>
+                <td class="value-cell">{{canopy.entranceFlap}}</td>
+                <td class="label-cell">Container Lining</td>
+                <td class="value-cell">{{inflatable.containerLining}}</td>
+                <td class="label-cell">Parachute Signal Expiry</td>
+                <td class="value-cell">{{parachuteSignals.expiry}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Rain Catchments</td>
+                <td class="value-cell">{{canopy.rainCatchments}}</td>
+                <td class="label-cell">Container ID Kit</td>
+                <td class="value-cell">{{inflatable.containerIdKit}}</td>
+                <td class="label-cell">Parachute Signal Lot No</td>
+                <td class="value-cell">{{parachuteSignals.lotNo}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Reflector Tape</td>
+                <td class="value-cell">{{canopy.reflectorTape}}</td>
+                <td class="label-cell">Emergency Equipment</td>
+                <td class="value-cell">{{equipment.emergencyEquipmentDrumValise}}</td>
+                <td class="label-cell">Smoke Floats Qty</td>
+                <td class="value-cell">{{smokeFloats.quantity}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Viewing Port</td>
+                <td class="value-cell">{{canopy.viewingPort}}</td>
+                <td class="label-cell">Drum/ Valise</td>
+                <td class="value-cell">{{equipment.drumValise}}</td>
+                <td class="label-cell">Smoke Floats Expiry</td>
+                <td class="value-cell">{{smokeFloats.expiry}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Light Units</td>
+                <td class="value-cell">{{canopy.lightUnits}}</td>
+                <td class="label-cell">Bailer(s)</td>
+                <td class="value-cell">{{equipment.bailers}}</td>
+                <td class="label-cell">First Aid Kit Qty</td>
+                <td class="value-cell">{{firstAidKit.quantity}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Sea Cells (Lithium)</td>
+                <td class="value-cell">{{seaCells.status}}</td>
+                <td class="label-cell">Bellow</td>
+                <td class="value-cell">{{equipment.bellow}}</td>
+                <td class="label-cell">First Aid Kit Expiry</td>
+                <td class="value-cell">{{firstAidKit.expiry}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Sea Cells Make</td>
+                <td class="value-cell">{{seaCells.make}}</td>
+                <td class="label-cell">Drinking Vessel</td>
+                <td class="value-cell">{{equipment.drinkingVessel}}</td>
+                <td class="label-cell">Rations Qty</td>
+                <td class="value-cell">{{rations.quantity}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Sea Cells Expiry</td>
+                <td class="value-cell">{{seaCells.expiry}}</td>
+                <td class="label-cell">Fishing Kit</td>
+                <td class="value-cell">{{equipment.fishingKit}}</td>
+                <td class="label-cell">Rations Expiry</td>
+                <td class="value-cell">{{rations.expiry}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Outer Floor</td>
+                <td class="value-cell">{{floor.outerFloor}}</td>
+                <td class="label-cell">Sea Sick Bags</td>
+                <td class="value-cell">{{equipment.seaSickBags}}</td>
+                <td class="label-cell">Water Expiry</td>
+                <td class="value-cell">{{water.expiry}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Inner Floor</td>
+                <td class="value-cell">{{floor.innerFloor}}</td>
+                <td class="label-cell">Sponges</td>
+                <td class="value-cell">{{equipment.sponges}}</td>
+                <td class="label-cell">Water Qty</td>
+                <td class="value-cell">{{water.quantity}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Inflate/Deflate Valve</td>
+                <td class="value-cell">{{floor.inflateDeflateValve}}</td>
+                <td class="label-cell">Scissors</td>
+                <td class="value-cell">{{equipment.scissors}}</td>
+                <td class="label-cell">Anti Sickness Qty</td>
+                <td class="value-cell">{{antiSeasicknessTablets.quantity}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Aerial Support</td>
+                <td class="value-cell">{{floor.aerialSupport}}</td>
+                <td class="label-cell">Thermal Protective aids</td>
+                <td class="value-cell">{{equipment.thermalProtectiveAids}}</td>
+                <td class="label-cell">Anti Sickness Expiry</td>
+                <td class="value-cell">{{antiSeasicknessTablets.expiry}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Cylinder Pocket</td>
+                <td class="value-cell">{{floor.cylinderPocket}}</td>
+                <td class="label-cell">Survival Manual</td>
+                <td class="value-cell">{{equipment.survivalManual}}</td>
+                <td class="label-cell">CO2 Cylinders Qty</td>
+                <td class="value-cell">{{co2Cylinders.quantity}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Water Pocket</td>
+                <td class="value-cell">{{floor.waterPocket}}</td>
+                <td class="label-cell">Signaling Chart</td>
+                <td class="value-cell">{{equipment.signalingChart}}</td>
+                <td class="label-cell">CO2 Serial No</td>
+                <td class="value-cell">{{co2Cylinders.serialNo}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Ern Pack Tapes</td>
+                <td class="value-cell">{{floor.ernPackTapes}}</td>
+                <td class="label-cell">Knife</td>
+                <td class="value-cell">{{equipment.knife}}</td>
+                <td class="label-cell">CO2 Weight (Kg)</td>
+                <td class="value-cell">{{co2Cylinders.co2WeightKg}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Rescue Line</td>
+                <td class="value-cell">{{floor.rescueLine}}</td>
+                <td class="label-cell">Leak Stopper</td>
+                <td class="value-cell">{{equipment.leakStopper}}</td>
+                <td class="label-cell">Hydro Test Date</td>
+                <td class="value-cell">{{co2Cylinders.hydroTestDate}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Righting Strap</td>
+                <td class="value-cell">{{floor.rightingStrap}}</td>
+                <td class="label-cell">Paddles</td>
+                <td class="value-cell">{{equipment.paddles}}</td>
+                <td class="label-cell">Actual Weight (Kg)</td>
+                <td class="value-cell">{{co2Cylinders.actualWeightKg}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Polythene Liner</td>
+                <td class="value-cell">{{floor.polytheneLiner}}</td>
+                <td class="label-cell">Repair Kit</td>
+                <td class="value-cell">{{equipment.repairKit}}</td>
+                <td class="label-cell">Tare Weight (Kg)</td>
+                <td class="value-cell">{{co2Cylinders.tareWeightKg}}</td>
+            </tr>
+            
+            <!-- Working Pressure Test Section -->
+            <tr>
+                <td colspan="6" class="section-header">Working Pressure Test</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Start On</td>
+                <td class="value-cell">{{workingPressureTest.startOn}}</td>
+                <td class="label-cell">Pr. Water (Inches)</td>
+                <td class="value-cell">{{workingPressureTest.pressureWaterInchesStart}}</td>
+                <td class="label-cell">Time Off</td>
+                <td class="value-cell">{{workingPressureTest.timeOff}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Pr. Water (Inches)</td>
+                <td class="value-cell">{{workingPressureTest.pressureWaterInchesEnd}}</td>
+                <td class="label-cell">Valve Reset (Inches)</td>
+                <td class="value-cell">{{workingPressureTest.valveResetInches}}</td>
+                <td class="label-cell">Tests</td>
+                <td class="value-cell">{{workingPressureTest.tests}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Remarks</td>
+                <td colspan="5" class="value-cell">{{workingPressureTest.remarks}}</td>
+            </tr>
+            
+            <!-- Test Results -->
+            <tr>
+                <td class="label-cell">Upper Buoyancy</td>
+                <td class="value-cell">{{testResults.upperBuoyancy}}</td>
+                <td class="label-cell">Gas Infln</td>
+                <td class="value-cell">{{testResults.gasInflation}}</td>
+                <td class="label-cell">Room Temperature</td>
+                <td class="value-cell">{{testResults.roomTemperature}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Lower Buoyancy</td>
+                <td class="value-cell">{{testResults.lowerBuoyancy}}</td>
+                <td class="label-cell">N.A.P.</td>
+                <td class="value-cell">{{testResults.nap}}</td>
+                <td class="label-cell">D/L Overload</td>
+                <td class="value-cell">{{testResults.dlOverload}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Floor</td>
+                <td class="value-cell">{{testResults.floor}}</td>
+                <td class="label-cell">Floor Seam</td>
+                <td class="value-cell">{{testResults.floorSeam}}</td>
+                <td class="label-cell">Length of Painter</td>
+                <td class="value-cell">{{otherInfo.lengthOfPainter}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Max Stowage</td>
+                <td class="value-cell">{{otherInfo.maxStowage}}</td>
+                <td class="label-cell">Emergency Pack Type</td>
+                <td class="value-cell">{{otherInfo.emergencyPackType}}</td>
+                <td class="label-cell">SOLAS</td>
+                <td class="value-cell">{{otherInfo.solas}}</td>
+            </tr>
+            <tr>
+                <td class="label-cell">General Comments</td>
+                <td colspan="3" class="value-cell">{{finalCertification.generalComments}}</td>
+                <td class="label-cell">Competent Person</td>
+                <td class="value-cell">{{finalCertification.competentPersonName}}</td>
+            </tr>
+            <tr>
+                <td colspan="5" class="label-cell">SOLAS " "</td>
+                <td class="value-cell">{{otherInfo.solas}}</td>
+            </tr>
+            
+            <!-- CO2 Cylinders -->
+            <tr>
+                <td colspan="7" class="section-header">CO2 Cylinders</td>
+            </tr>
+            <tr>
+                <td class="label-cell">Serial No.</td>
+                <td class="label-cell">Hydro Test date</td>
+                <td class="label-cell">Actual Weight (Kg)</td>
+                <td class="label-cell">Written Gross Wt. (Kg)</td>
+                <td class="label-cell">Tare Weight (Kg)</td>
+                <td class="label-cell">Co2 Weight (Kg)</td>
+                <td class="label-cell">Content N2 (Kg)</td>
+            </tr>
+            <tr>
+                <td class="value-cell">{{co2Cylinders.serialNo}}</td>
+                <td class="value-cell">{{co2Cylinders.hydroTestDate}}</td>
+                <td class="value-cell">{{co2Cylinders.actualWeightKg}}</td>
+                <td class="value-cell">{{co2Cylinders.writtenGrossWeightKg}}</td>
+                <td class="value-cell">{{co2Cylinders.tareWeightKg}}</td>
+                <td class="value-cell">{{co2Cylinders.co2WeightKg}}</td>
+                <td class="value-cell">{{co2Cylinders.contentN2Kg}}</td>
+            </tr>
+        </table>
+        
+        <!-- Certification Text -->
+        <div class="certification-text">
+            This is to certify that above liferaft has been tested and serviced in accordance with the requirement of SOLAS 1974/1996 IMO Res A.761 (18). The Certificate is valid up to the next due date indicated above. General Comments: Satisfactory.
+        </div>
+        
+        <!-- Signature Area -->
+        <div class="signature-area">
+            {{finalCertification.competentPersonName}}<br>
+            Competent Person/ Maker Authorized<br>
+            {{finalCertification.companyName}}
+        </div>
+    </div>
+</body>
+</html>
