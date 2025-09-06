@@ -165,21 +165,70 @@ async function downloadPDF(certificates) {
     const template = await loadHtmlTemplate();
     
     for (const [index, cert] of certificates.entries()) {
-      // Transform data for the template
-      const data = {
-        ...cert,
-        certificateNumber: cert['header.certificateNo'] || `CERT-${Date.now()}`,
-        vesselName: cert['header.vesselName'] || '',
-        manufacturedBy: cert['header.manufacturedBy'] || '',
-        ownerName: cert['header.ownerName'] || '',
+      // Transform and structure data for the template
+      const structuredData = {
+        header: {
+          vesselName: cert['header.vesselName'] || '',
+          certificateNo: cert['header.certificateNo'] || `CERT-${Date.now()}`,
+          manufacturedBy: cert['header.manufacturedBy'] || '',
+          ownerName: cert['header.ownerName'] || '',
+          manufacturingDate: cert['header.manufacturingDate'] || '',
+          serviceDate: cert['header.serviceDate'] || '',
+          imoNumber: cert['header.imoNumber'] || '',
+          type: cert['header.type'] || '',
+          capacity: cert['header.capacity'] || '',
+          liferaftSerialNo: cert['header.liferaftSerialNo'] || '',
+          lastServiceDate: cert['header.lastServiceDate'] || ''
+        },
+        buoyancyStatus: cert.buoyancyStatus || {},
+        inflatableEquipments: cert.inflatableEquipments || {},
+        equipment: cert.equipment || {},
+        pyrotechnicItems: cert.pyrotechnicItems || {},
+        canopyComponents: cert.canopyComponents || {},
+        floorComponents: cert.floorComponents || {},
+        survivalEquipment: cert.survivalEquipment || {},
+        pressureTest: cert.pressureTest || {},
+        finalCertificate: cert.finalCertificate || {},
+        co2Cylinders: cert.co2Cylinders || [{}, {}],
+        solas: cert.solas || '',
         inspectionDate: new Date().toISOString().split('T')[0]
       };
       
-      // Replace placeholders
+      // Replace placeholders with conditional rendering
       let html = template;
-      for (const [key, value] of Object.entries(data)) {
-        html = html.replace(new RegExp(`{{${key}}}`, 'g'), value || '');
+      
+      // Function to recursively replace nested object properties
+      function replaceNestedPlaceholders(obj, prefix = '') {
+        for (const [key, value] of Object.entries(obj)) {
+          const fullKey = prefix ? `${prefix}.${key}` : key;
+          
+          if (value && typeof value === 'object' && !Array.isArray(value)) {
+            // Recursively handle nested objects
+            replaceNestedPlaceholders(value, fullKey);
+          } else if (Array.isArray(value)) {
+            // Handle arrays (like co2Cylinders)
+            value.forEach((item, index) => {
+              if (item && typeof item === 'object') {
+                replaceNestedPlaceholders(item, `${fullKey}[${index}]`);
+              } else if (item && item.toString().trim() !== '') {
+                const arrayKey = `${fullKey}[${index}]`;
+                html = html.replace(new RegExp(`{{${arrayKey}}}`, 'g'), item);
+              }
+            });
+          } else if (value && value.toString().trim() !== '') {
+            // Replace filled values
+            html = html.replace(new RegExp(`{{${fullKey}}}`, 'g'), value);
+          }
+        }
       }
+      
+      // Replace all filled placeholders
+      replaceNestedPlaceholders(structuredData);
+      
+      // Clean up any remaining empty placeholders
+      html = html.replace(/<p[^>]*>\s*<strong>\s*{{[^}]+}}\s*<\/strong>\s*<\/p>/g, '<p><strong>&#xa0;</strong></p>');
+      html = html.replace(/<strong>\s*{{[^}]+}}\s*<\/strong>/g, '<strong>&#xa0;</strong>');
+      html = html.replace(/{{[^}]+}}/g, '&#xa0;');
       
       // Generate PDF
       const response = await fetch('/generate-pdf', {
@@ -187,7 +236,7 @@ async function downloadPDF(certificates) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           html,
-          filename: `certificate_${data.certificateNumber}.pdf` 
+          filename: `certificate_${structuredData.header.certificateNo}.pdf` 
         })
       });
       
@@ -204,8 +253,8 @@ async function downloadPDF(certificates) {
       }
       
       // Create a simple, clean filename
-      const vesselName = data.vesselName || 'Unknown';
-      const certNumber = data.certificateNumber || Date.now();
+      const vesselName = structuredData.header.vesselName || 'Unknown';
+      const certNumber = structuredData.header.certificateNo || Date.now();
       const cleanVesselName = vesselName.replace(/[^a-zA-Z0-9]/g, '_');
       const filename = `Certificate_${cleanVesselName}_${certNumber}.pdf`;
       
