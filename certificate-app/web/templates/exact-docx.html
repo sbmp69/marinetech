@@ -1,3 +1,1319 @@
+<!--<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<title>
+		</title>
+		<style>
+			body { font-family:Calibri; font-size:11pt }
+			p { margin:0pt }
+			table { margin-top:0pt; margin-bottom:0pt }
+			.BalloonText { font-family:Tahoma; font-size:8pt }
+			.CommentSubject { font-size:10pt; font-weight:bold }
+			.CommentText { font-size:10pt }
+			.Footer { font-size:11pt }
+			.Header { font-size:11pt }
+			.ListParagraph { margin-left:36pt; font-size:11pt }
+			.Title { margin-top:12pt; margin-bottom:3pt; text-align:center; font-family:'Calibri Light'; font-size:16pt; font-weight:bold }
+			span.BalloonTextChar { font-family:Tahoma; font-size:8pt }
+			span.CommentReference { font-size:8pt }
+			span.CommentSubjectChar { font-weight:bold }
+			span.FooterChar { font-size:11pt }
+			span.HeaderChar { font-size:11pt }
+			span.TitleChar { font-family:'Calibri Light'; font-size:16pt; font-weight:bold }
+@media (max-width: 900px) { 
+img { 
+   max-width: 100%;
+   height: auto;
+}
+
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+}	
+
+
+		</style>
+	</head>
+	<body>
+		<div>
+			<div style="clear:both">
+				<p class="Header">
+					&#xa0;
+				</p>
+				<p class="Header">
+					&#xa0;
+				</p>
+				<p class="Header">
+					&#xa0;
+				</p>
+				<p class="Header">
+					&#xa0;
+				</p>
+			</div>
+			<p class="Header" style="margin-left:45pt; text-indent:-45pt; text-align:center; line-height:150%; font-size:16pt">
+				<strong><u>Inspection Report and Test Certificate for Inflatable Liferaft</u></strong>
+			</p>
+			<table style="width:571.3pt; padding:0pt; border-collapse:collapse">
+				<tr style="height:11pt">
+					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>Vessel Name </strong>
+						</p>
+					</td>
+					<td colspan="6" style="width:137.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>{{header.vesselName}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:70.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>Mfg. By</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:86.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>{{header.manufacturedBy}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:67.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>Certificate No.</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:92.05pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>{{header.certificateNo}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>Owner Name</strong>
+						</p>
+					</td>
+					<td colspan="6" style="width:137.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>{{header.ownerName}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:70.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="font-size:9pt">
+							<strong>Mfg. Date</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:86.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="font-size:9pt">
+							<strong>{{header.manufacturingDate}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:67.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="font-size:9pt">
+							<strong>Date of Service</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:92.05pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>{{header.dateOfService}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:3.5pt">
+					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>IMO No.</strong>
+						</p>
+					</td>
+					<td colspan="6" style="width:137.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>{{header.imoNo}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:70.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>Type</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:86.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>{{header.type}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:67.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>Next Service Due </strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:92.05pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>{{header.nextServiceDue}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>Capacity </strong>
+						</p>
+					</td>
+					<td colspan="6" style="width:137.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>{{header.capacity}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:70.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>Liferaft Serial No</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:86.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>{{header.liferaftSerialNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:67.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:9pt">
+							<strong>Last Service Date</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:92.05pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:justify; font-size:9pt">
+							<strong>{{header.lastServiceDate}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" style="width:79.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong><em><u>BUOYANCY</u></em></strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:43.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong><em><u>STATUS</u></em></strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:110.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong><u>INFLATABLE EQUIPMENTS</u></strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong><u>STATUS</u></strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong><u>EQUIPMENTS</u></strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong><u>STATUS</u></strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" rowspan="9" style="width:79.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Arches</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Boarding Ramp/Ladder</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Centre Strut</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Inflate/ Deflate valve</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lifeline</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lifeline Patch</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Relief Valves</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Towing bridle/Line</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Gas Inflation V/V</strong>
+						</p>
+					</td>
+					<td colspan="2" rowspan="9" style="width:43.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.arches}}</strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.boardingRampLadder}}</strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.centreStrut}}</strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.inflateDeflateValve}}</strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.lifeline}}</strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.lifelinePatch}}</strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.reliefValves}}</strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.towingBridleLine}}</strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{buoyancy.gasInflationValve}}</strong>
+						</p>
+					</td>
+					<td colspan="3" rowspan="24" style="width:110.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Firing Cable</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Conduit</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Operating Handle</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>High Pressure Hose</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>T. Connection</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Deflation Plug Key</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Container</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Labels</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Painter Pocket/Lines</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Bursting Bands/Straps</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Sealing Gaskets</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Drain Holes</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Container Lining</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Container ID Kit</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Emergency Equipment</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Drum/Valise</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Bailer(s)</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Bellow</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Bungs</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Drinking vessel</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Fishing Kit</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Heliograph</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Knife</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Leak Stopper</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Paddles</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Repair Kit</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Thermal Protective aids</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Survival Manual</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Signaling Chart</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Sea Sick Bags</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Sponges</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Scissors</strong>
+						</p>
+					</td>
+					<td colspan="3" rowspan="24" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.firingCable}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.conduit}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.operatingHandle}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.highPressureHose}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.tConnection}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.deflationPlugKey}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.container}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.labels}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.painterPocketLines}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.burstingBandsStraps}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.sealingGaskets}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.drainHoles}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.containerLining}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{inflatable.containerIdKit}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.emergencyEquipmentDrumValise}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.bailers}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.bellow}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.bungs}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.drinkingVessel}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.fishingKit}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.heliograph}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.knife}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.leakStopper}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.paddles}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.repairKit}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.thermalProtectiveAids}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.survivalManual}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.signalingChart}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.seaSickBags}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.sponges}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.scissors}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Sea Anchor and Lines</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.seaAnchorAndLines}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Torch Cells</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{equipment.torchCells}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Torch</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center">
+							<strong>{{equipment.torch}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Torch Bulb</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center">
+							<strong>{{equipment.torchBulb}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Tin Opener</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center">
+							<strong>{{equipment.tinOpener}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Whistle</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center">
+							<strong>{{equipment.whistle}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Radar reflector</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center">
+							<strong>{{equipment.radarReflector}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.2pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Radar reflector Patch</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center">
+							<strong>{{equipment.radarReflectorPatch}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:9.75pt">
+					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Hand Flare – {{handFlares.quantity}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:20.05pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{handFlares.expiry}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lot No – {{handFlares.lotNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Status – {{handFlares.status}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{handFlares.make}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:9.65pt">
+					<td colspan="5" style="width:133.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>CANOPY</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:9.75pt">
+					<td colspan="3" rowspan="7" style="width:79.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Outer Canopy</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Inner Canopy</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Entrance Flap</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Rain Catchments</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Reflector Tape</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Viewing Port</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Light Units</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Sea Cells (Lithium)</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{seaCells.make}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{seaCells.expiry}}</strong>
+						</p>
+					</td>
+					<td colspan="2" rowspan="7" style="width:43.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{canopy.outerCanopy}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{canopy.innerCanopy}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{canopy.entranceFlap}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{canopy.rainCatchments}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{canopy.reflectorTape}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{canopy.viewingPort}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{canopy.lightUnits}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:9.75pt">
+					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Parachute Signals – {{parachuteSignals.quantity}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:22.5pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{parachuteSignals.expiry}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lot No – {{parachuteSignals.lotNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Status – {{parachuteSignals.status}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{parachuteSignals.make}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:8.25pt">
+					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Smoke Floats - {{smokeFloats.quantity}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:24.75pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{smokeFloats.expiry}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lot No – {{smokeFloats.lotNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Status – {{smokeFloats.status}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{smokeFloats.make}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:7.5pt">
+					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Rations – {{rations.quantity}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:20.05pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{rations.expiry}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lot No – {{rations.lotNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Status – {{rations.status}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{rations.make}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:11pt">
+					<td colspan="3" rowspan="7" style="width:79.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Outer Floor</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Inner Floor</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Inflate/Deflate Valve</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Aerial Support</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Cylinder Pocket</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Water Pocket</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Ern Pack Tapes</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Rescue Line</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Righting Strap</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Polythene Liner</strong>
+						</p>
+					</td>
+					<td colspan="2" rowspan="7" style="width:43.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.outerFloor}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.innerFloor}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.inflateDeflateValve}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.aerialSupport}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.cylinderPocket}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.waterPocket}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.ernPackTapes}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.rescueLine}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.rightingStrap}}</strong>
+						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{floor.polytheneLiner}}</strong>
+						</p>
+					</td>
+					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>First aid Kit – {{firstAidKit.quantity}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:9.75pt">
+					<td colspan="3" rowspan="2" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{firstAidKit.expiry}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lot No – {{firstAidKit.lotNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" rowspan="2" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Status – {{firstAidKit.status}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{firstAidKit.make}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:20.05pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{rations.expiry}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lot No – {{rations.lotNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Status – {{rations.status}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{rations.make}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:8.25pt">
+					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Water – {{water.quantity}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:21.35pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{water.expiry}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lot No – {{water.lotNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Status – {{water.status}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{water.make}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:9pt">
+					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Anti-Seasickness Tablet – {{antiSeasicknessTablets.quantity}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:20.9pt">
+					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Expiry – {{antiSeasicknessTablets.expiry}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Lot No – {{antiSeasicknessTablets.lotNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Status – {{antiSeasicknessTablets.status}}</strong>
+						</p>
+						<p style="page-break-inside:avoid; font-size:8pt">
+							<strong>Make – {{antiSeasicknessTablets.make}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="width:70.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong>Working Pressure Test</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong>Start On</strong>
+						</p>
+					</td>
+					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong>Pr. Water (Inches)</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong>Time Off</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong>Pr. Water (inches)</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong>Valve Reset </strong>
+						</p>
+						<p style="text-align:center; font-size:8pt">
+							<strong>(Inches)</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong>Tests</strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong>Remarks</strong>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="width:70.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>Upper Buoyancy</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{workingPressureTest.startOn}}</strong>
+						</p>
+					</td>
+					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{workingPressureTest.pressureWaterInchesStart}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{workingPressureTest.timeOff}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{workingPressureTest.pressureWaterInchesEnd}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{workingPressureTest.valveResetInches}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>Gas Infln</strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:9pt">
+							<strong>{{workingPressureTest.remarks}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="width:70.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>Lower Buoyancy</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{lowerBuoyancyTest.startOn}}</strong>
+						</p>
+					</td>
+					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{lowerBuoyancyTest.pressureWaterInches}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{lowerBuoyancyTest.timeOff}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>{{lowerBuoyancyTest.pressureWaterInches2}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{lowerBuoyancyTest.valveResetInches}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>N.A.P.</strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:9pt">
+							<strong>{{lowerBuoyancyTest.remarks}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:10.1pt">
+					<td colspan="2" style="width:70.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>Floor</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{floorTest.startOn}}</strong>
+						</p>
+					</td>
+					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{floorTest.pressureWaterInches}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{floorTest.timeOff}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{floorTest.pressureWaterInches2}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{floorTest.valveResetInches}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>Floor Seam</strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:9pt">
+							<strong>{{floorTest.remarks}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="width:70.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>Room Temp</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{roomTempTest.startOn}}</strong>
+						</p>
+					</td>
+					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{roomTempTest.pressureWaterInches}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{roomTempTest.timeOff}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{roomTempTest.pressureWaterInches2}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>{{roomTempTest.valveResetInches}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>D/L O/Load</strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:9pt">
+							<strong>{{roomTempTest.remarks}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5" style="width:133.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>Length of Painter – {{otherInfo.lengthOfPainter}}</strong>
+						</p>
+					</td>
+					<td colspan="6" style="width:171.65pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="font-size:8pt">
+							<strong>Max. stowage – {{otherInfo.maxStowage}}</strong>
+						</p>
+					</td>
+					<td colspan="5" style="width:153.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{otherInfo.emergencyPackType}}</strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{otherInfo.solas}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:2.9pt">
+					<td colspan="17" style="width:559.75pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
+						<p style="text-align:center; font-size:10pt">
+							<strong><u>CO2 Cylinders</u></strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:3.5pt">
+					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong><u>Serial No.</u></strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:61.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong><u>Hydro Test date</u></strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:65.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong><u>Actual Weight (Kg)</u></strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:83.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong><u>Written Gross Wt. (Kg)</u></strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:72.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong><u>Tare Weight (Kg)</u></strong>
+						</p>
+					</td>
+					<td colspan="4" style="width:89.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong><u>Co2 Weight (Kg)</u></strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle; background-color:#f2f2f2">
+						<p style="text-align:center; font-size:8pt">
+							<strong><u>Content N2 (Kg)</u></strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:2.9pt">
+					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.serialNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:61.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.hydroTestDate}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:65.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.actualWeightKg}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:83.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.writtenGrossWeightKg}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:72.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.tareWeightKg}}</strong>
+						</p>
+					</td>
+					<td colspan="4" style="width:89.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.co2WeightKg}}</strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.contentN2Kg}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:2.9pt">
+					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.serialNo}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:61.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.hydroTestDate}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:65.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.actualWeightKg}}</strong>
+						</p>
+					</td>
+					<td colspan="3" style="width:83.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.writtenGrossWeightKg}}</strong>
+						</p>
+					</td>
+					<td colspan="2" style="width:72.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.tareWeightKg}}</strong>
+						</p>
+					</td>
+					<td colspan="4" style="width:89.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.co2WeightKg}}</strong>
+						</p>
+					</td>
+					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
+						<p style="text-align:center; font-size:8pt">
+							<strong>{{co2Cylinders.contentN2Kg}}</strong>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:0pt">
+					<td style="width:63pt">
+					</td>
+					<td style="width:17.9pt">
+					</td>
+					<td style="width:9pt">
+					</td>
+					<td style="width:45.1pt">
+					</td>
+					<td style="width:8.9pt">
+					</td>
+					<td style="width:58.5pt">
+					</td>
+					<td style="width:9.1pt">
+					</td>
+					<td style="width:53.9pt">
+					</td>
+					<td style="width:27.1pt">
+					</td>
+					<td style="width:13.5pt">
+					</td>
+					<td style="width:20.35pt">
+					</td>
+					<td style="width:63.35pt">
+					</td>
+					<td style="width:19.6pt">
+					</td>
+					<td style="width:37.1pt">
+					</td>
+					<td style="width:21.3pt">
+					</td>
+					<td style="width:22.7pt">
+					</td>
+					<td style="width:80.15pt">
+					</td>
+				</tr>
+			</table>
+			<p style="text-align:justify; font-size:9pt">
+				<strong><u>This is to certify that above liferaft has been tested and serviced in accordance with the requirement of SOLAS 1974/1996 IMO Res A.761 (18). The Certificate is valid up to the next due date indicated above. General Comments- Satisfactory.</u></strong><strong><u>&#xa0;&#xa0; </u></strong>
+			</p>
+			<p style="font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="font-size:12pt">
+				&#xa0;
+			</p>
+			<p>
+				<strong><span style="width:97.65pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:24pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong>
+			</p>
+			<p style="font-size:11.5pt">
+				<strong>{{finalCertification.competentPersonName}} </strong>
+			</p>
+			<p style="font-size:11.5pt">
+				<strong>{{finalCertification.competentPersonDesignationAuthorization}} </strong>
+			</p>
+			<p style="font-size:11.5pt">
+				<strong>{{finalCertification.companyName}}</strong><strong><span style="width:35.76pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong>              </strong>
+			</p>
+		</div>
+	<p style="bottom: 10px; right: 10px; position: absolute;"><a href="https://wordtohtml.net" target="_blank" style="font-size:11px; color: #d0d0d0">Converted to HTML with WordToHTML.net</a></p>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4581d6a58cf94e929fad52deda295622","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html> -->
+
+
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
@@ -263,7 +1579,7 @@ td, th {
 							<strong>{{buoyancy.arches}}</strong>
 						</p>
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{buoyancy.boardingRamp}}</strong>
+							<strong>{{buoyancy.boardingRampLadder}}</strong>
 						</p>
 						<p style="text-align:center; font-size:8pt">
 							<strong>{{buoyancy.centreStrut}}</strong>
@@ -281,7 +1597,7 @@ td, th {
 							<strong>{{buoyancy.reliefValves}}</strong>
 						</p>
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{buoyancy.towingBridle}}</strong>
+							<strong>{{buoyancy.towingBridleLine}}</strong>
 						</p>
 						<p style="text-align:center; font-size:8pt">
 							<strong>{{buoyancy.gasInflationValve}}</strong>
@@ -387,100 +1703,97 @@ td, th {
 					</td>
 					<td colspan="3" rowspan="24" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.firingCable}}</strong>
+							<strong>{{inflatable.firingCable}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.conduit}}</strong>
+							<strong>{{inflatable.conduit}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.operatingHandle}}</strong>
+							<strong>{{inflatable.operatingHandle}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.highPressureHose}}</strong>
+							<strong>{{inflatable.highPressureHose}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.tConnection}}</strong>
+							<strong>{{inflatable.tConnection}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.deflationPlugKey}}</strong>
+							<strong>{{inflatable.deflationPlugKey}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.container}}</strong>
+							<strong>{{inflatable.container}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.labels}}</strong>
+							<strong>{{inflatable.labels}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.painterPocket}}</strong>
+							<strong>{{inflatable.painterPocketLines}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.burstingBands}}</strong>
+							<strong>{{inflatable.burstingBandsStraps}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.sealingGaskets}}</strong>
+							<strong>{{inflatable.sealingGaskets}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.drainHoles}}</strong>
+							<strong>{{inflatable.drainHoles}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.containerLining}}</strong>
+							<strong>{{inflatable.containerLining}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.containerIdKit}}</strong>
+							<strong>{{inflatable.containerIdKit}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.emergencyEquipment}}</strong>
+							<strong>{{equipment.emergencyEquipmentDrumValise}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.drumValise}}</strong>
+							<strong>{{equipment.bailers}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.bailers}}</strong>
+							<strong>{{equipment.bellow}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.bellow}}</strong>
+							<strong>{{equipment.bungs}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.bungs}}</strong>
+							<strong>{{equipment.drinkingVessel}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.drinkingVessel}}</strong>
+							<strong>{{equipment.fishingKit}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.fishingKit}}</strong>
+							<strong>{{equipment.heliograph}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.heliograph}}</strong>
+							<strong>{{equipment.knife}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.knife}}</strong>
+							<strong>{{equipment.leakStopper}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.leakStopper}}</strong>
+							<strong>{{equipment.paddles}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.paddles}}</strong>
+							<strong>{{equipment.repairKit}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.repairKit}}</strong>
+							<strong>{{equipment.thermalProtectiveAids}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.thermalProtectiveAids}}</strong>
+							<strong>{{equipment.survivalManual}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.survivalManual}}</strong>
+							<strong>{{equipment.signalingChart}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.signalingChart}}</strong>
+							<strong>{{equipment.seaSickBags}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.seaSickBags}}</strong>
+							<strong>{{equipment.sponges}}</strong>
 						</p>
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.sponges}}</strong>
-						</p>
-						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
-							<strong>{{inflatableEquipments.scissors}}</strong>
+							<strong>{{equipment.scissors}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
@@ -490,7 +1803,7 @@ td, th {
 					</td>
 					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>{{equipment.seaAnchor}}</strong>
+							<strong>{{equipment.seaAnchorAndLines}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -581,7 +1894,7 @@ td, th {
 				<tr style="height:9.75pt">
 					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Hand Flare – </strong>
+							<strong>Hand Flare – {{handFlares.quantity}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -593,18 +1906,18 @@ td, th {
 					</td>
 					<td colspan="3" rowspan="2" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Expiry – {{handFlare.expiry}}</strong>
+							<strong>Expiry – {{handFlares.expiry}}</strong>
 						</p>
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Lot No – {{handFlare.lotNo}}</strong>
+							<strong>Lot No – {{handFlares.lotNo}}</strong>
 						</p>
 					</td>
 					<td colspan="3" rowspan="2" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Status – {{handFlare.status}}</strong>
+							<strong>Status – {{handFlares.status}}</strong>
 						</p>
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Make – {{handFlare.make}}</strong>
+							<strong>Make – {{handFlares.make}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -635,10 +1948,10 @@ td, th {
 							<strong>Sea Cells (Lithium)</strong>
 						</p>
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Make – {{canopy.seaCells.make}}</strong>
+							<strong>Make – {{seaCells.make}}</strong>
 						</p>
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Expiry – {{canopy.seaCells.expiry}}</strong>
+							<strong>Expiry – {{seaCells.expiry}}</strong>
 						</p>
 					</td>
 					<td colspan="2" rowspan="7" style="width:43.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
@@ -663,12 +1976,15 @@ td, th {
 						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
 							<strong>{{canopy.lightUnits}}</strong>
 						</p>
+						<p style="text-align:center; page-break-inside:avoid; font-size:8pt">
+							<strong>{{seaCells.status}}</strong>
+						</p>
 					</td>
 				</tr>
 				<tr style="height:9.75pt">
 					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Parachute Signals – </strong>
+							<strong>Parachute Signals – {{parachuteSignals.quantity}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -693,7 +2009,7 @@ td, th {
 				<tr style="height:8.25pt">
 					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Smoke Floats -</strong>
+							<strong>Smoke Floats - {{smokeFloats.quantity}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -718,7 +2034,7 @@ td, th {
 				<tr style="height:7.5pt">
 					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>First aid Kit – </strong>
+							<strong>First aid Kit – {{firstAidKit.quantity}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -809,7 +2125,7 @@ td, th {
 				<tr style="height:9pt">
 					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Rations – </strong>
+							<strong>Rations – {{rations.quantity}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -834,7 +2150,7 @@ td, th {
 				<tr style="height:8.25pt">
 					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Water – </strong>
+							<strong>Water – {{water.quantity}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -859,25 +2175,25 @@ td, th {
 				<tr style="height:9pt">
 					<td colspan="6" style="width:233.4pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top; background-color:#f2f2f2">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Anti-Seasickness Tablet – </strong>
+							<strong>Anti-Seasickness Tablet – {{antiSeasicknessTablets.quantity}}</strong>
 						</p>
 					</td>
 				</tr>
 				<tr style="height:20.9pt">
 					<td colspan="3" style="width:109.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Expiry – {{antiSeasicknessTablet.expiry}}</strong>
+							<strong>Expiry – {{antiSeasicknessTablets.expiry}}</strong>
 						</p>
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Lot No – {{antiSeasicknessTablet.lotNo}}</strong>
+							<strong>Lot No – {{antiSeasicknessTablets.lotNo}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:113.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Status – {{antiSeasicknessTablet.status}}</strong>
+							<strong>Status – {{antiSeasicknessTablets.status}}</strong>
 						</p>
 						<p style="page-break-inside:avoid; font-size:8pt">
-							<strong>Make – {{antiSeasicknessTablet.make}}</strong>
+							<strong>Make – {{antiSeasicknessTablets.make}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -934,37 +2250,37 @@ td, th {
 					</td>
 					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.upperBuoyancy.startOn}}</strong>
+							<strong>{{workingPressureTest.startOn}}</strong>
 						</p>
 					</td>
 					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.upperBuoyancy.prWaterStart}}</strong>
+							<strong>{{workingPressureTest.pressureWaterInchesStart}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.upperBuoyancy.timeOff}}</strong>
+							<strong>{{workingPressureTest.timeOff}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.upperBuoyancy.prWaterEnd}}</strong>
+							<strong>{{workingPressureTest.pressureWaterInchesEnd}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.upperBuoyancy.valveReset}}</strong>
+							<strong>{{workingPressureTest.valveResetInches}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="font-size:8pt">
-							<strong>Gas Infln</strong>
+							<strong>{{testResults.gasInflation}}</strong>
 						</p>
 					</td>
 					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:9pt">
-							<strong>{{pressureTest.upperBuoyancy.remarks}}</strong>
+							<strong>{{workingPressureTest.remarks}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -976,37 +2292,37 @@ td, th {
 					</td>
 					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.lowerBuoyancy.startOn}}</strong>
+							<strong>{{lowerBuoyancyTest.startOn}}</strong>
 						</p>
 					</td>
 					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.lowerBuoyancy.prWaterStart}}</strong>
+							<strong>{{lowerBuoyancyTest.pressureWaterInches}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.lowerBuoyancy.timeOff}}</strong>
+							<strong>{{lowerBuoyancyTest.timeOff}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="font-size:8pt">
-							<strong>{{pressureTest.lowerBuoyancy.prWaterEnd}}</strong>
+							<strong>{{lowerBuoyancyTest.pressureWaterInches2}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.lowerBuoyancy.valveReset}}</strong>
+							<strong>{{lowerBuoyancyTest.valveResetInches}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="font-size:8pt">
-							<strong>N.A.P.</strong>
+							<strong>{{testResults.nap}}</strong>
 						</p>
 					</td>
 					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:9pt">
-							<strong>{{pressureTest.lowerBuoyancy.remarks}}</strong>
+							<strong>{{testResults.napRemarks}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -1018,37 +2334,37 @@ td, th {
 					</td>
 					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.floor.startOn}}</strong>
+							<strong>{{floorTest.startOn}}</strong>
 						</p>
 					</td>
 					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.floor.prWaterStart}}</strong>
+							<strong>{{floorTest.pressureWaterInches}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.floor.timeOff}}</strong>
+							<strong>{{floorTest.timeOff}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.floor.prWaterEnd}}</strong>
+							<strong>{{floorTest.pressureWaterInches2}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.floor.valveReset}}</strong>
+							<strong>{{floorTest.valveResetInches}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="font-size:8pt">
-							<strong>Floor Seam</strong>
+							<strong>{{testResults.floorSeam}}</strong>
 						</p>
 					</td>
 					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:9pt">
-							<strong>{{pressureTest.floor.remarks}}</strong>
+							<strong>{{testResults.floorSeamRemarks}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -1060,59 +2376,59 @@ td, th {
 					</td>
 					<td colspan="3" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.roomTemp.startOn}}</strong>
+							<strong>{{roomTempTest.startOn}}</strong>
 						</p>
 					</td>
 					<td style="width:47.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.roomTemp.prWaterStart}}</strong>
+							<strong>{{roomTempTest.pressureWaterInches}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.roomTemp.timeOff}}</strong>
+							<strong>{{roomTempTest.timeOff}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:50.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{pressureTest.roomTemp.prWaterEnd}}</strong>
+							<strong>{{roomTempTest.pressureWaterInches2}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:72.15pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="font-size:8pt">
-							<strong>{{pressureTest.roomTemp.valveReset}}</strong>
+							<strong>{{roomTempTest.valveResetInches}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:70.3pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="font-size:8pt">
-							<strong>D/L O/Load</strong>
+							<strong>{{testResults.dlOverload}}</strong>
 						</p>
 					</td>
 					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:9pt">
-							<strong>{{pressureTest.roomTemp.remarks}}</strong>
+							<strong>{{testResults.dlOverloadRemarks}}</strong>
 						</p>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="5" style="width:133.1pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="font-size:8pt">
-							<strong>Length of Painter – {{lengthOfPainter}}</strong>
+							<strong>Length of Painter – {{otherInfo.lengthOfPainter}}</strong>
 						</p>
 					</td>
 					<td colspan="6" style="width:171.65pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="font-size:8pt">
-							<strong>Max. stowage – {{maxStowage}}</strong>
+							<strong>Max. stowage – {{otherInfo.maxStowage}}</strong>
 						</p>
 					</td>
 					<td colspan="5" style="width:153.25pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{emergencyPackType}}</strong>
+							<strong>{{otherInfo.emergencyPackType}}</strong>
 						</p>
 					</td>
 					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:top">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{solas}}</strong>
+							<strong>{{otherInfo.solas}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -1163,74 +2479,74 @@ td, th {
 				<tr style="height:2.9pt">
 					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[0].serialNo}}</strong>
+							<strong>{{co2Cylinders.serialNo}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:61.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[0].hydroTestDate}}</strong>
+							<strong>{{co2Cylinders.hydroTestDate}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:65.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[0].actualWeight}}</strong>
+							<strong>{{co2Cylinders.actualWeightKg}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:83.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[0].writtenGrossWeight}}</strong>
+							<strong>{{co2Cylinders.writtenGrossWeightKg}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:72.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[0].tareWeight}}</strong>
+							<strong>{{co2Cylinders.tareWeightKg}}</strong>
 						</p>
 					</td>
 					<td colspan="4" style="width:89.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[0].co2Weight}}</strong>
+							<strong>{{co2Cylinders.co2WeightKg}}</strong>
 						</p>
 					</td>
 					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[0].contentN2}}</strong>
+							<strong>{{co2Cylinders.contentN2Kg}}</strong>
 						</p>
 					</td>
 				</tr>
 				<tr style="height:2.9pt">
 					<td style="width:52.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[1].serialNo}}</strong>
+							<strong>{{co2Cylinders.serialNo}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:61.2pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[1].hydroTestDate}}</strong>
+							<strong>{{co2Cylinders.hydroTestDate}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:65.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[1].actualWeight}}</strong>
+							<strong>{{co2Cylinders.actualWeightKg}}</strong>
 						</p>
 					</td>
 					<td colspan="3" style="width:83.7pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[1].writtenGrossWeight}}</strong>
+							<strong>{{co2Cylinders.writtenGrossWeightKg}}</strong>
 						</p>
 					</td>
 					<td colspan="2" style="width:72.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[1].tareWeight}}</strong>
+							<strong>{{co2Cylinders.tareWeightKg}}</strong>
 						</p>
 					</td>
 					<td colspan="4" style="width:89.9pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[1].co2Weight}}</strong>
+							<strong>{{co2Cylinders.co2WeightKg}}</strong>
 						</p>
 					</td>
 					<td style="width:69.35pt; border:0.75pt solid #000000; padding:0pt 5.03pt; vertical-align:middle">
 						<p style="text-align:center; font-size:8pt">
-							<strong>{{co2Cylinders[1].contentN2}}</strong>
+							<strong>{{co2Cylinders.contentN2Kg}}</strong>
 						</p>
 					</td>
 				</tr>
@@ -1283,14 +2599,14 @@ td, th {
 			<p>
 				<strong><span style="width:97.65pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:24pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong>
 			</p>
-			<p style="font-size:11.5pt">
+			<p>
 				<strong>Sakthish Venkatesan </strong>
 			</p>
-			<p style="font-size:11.5pt">
+			<p>
 				<strong>Competent Person/ Maker Authorized </strong>
 			</p>
-			<p style="font-size:11.5pt">
-				<strong>Marinetech Safety &amp; Shipping Corporation</strong><strong><span style="width:35.76pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong>              </strong>
+			<p>
+				<strong>Marinetech Safety &amp; Shipping Corporation</strong><strong><span style="width:35.76pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong><span style="width:36pt; display:inline-block">&#xa0;</span></strong><strong>              </strong>
 			</p>
 		</div>
 	<p style="bottom: 10px; right: 10px; position: absolute;"><a href="https://wordtohtml.net" target="_blank" style="font-size:11px; color: #d0d0d0">Converted to HTML with WordToHTML.net</a></p>

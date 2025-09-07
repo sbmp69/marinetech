@@ -132,7 +132,7 @@ function collectCertificateData(formIndex) {
       // Convert input name to the format expected by the template
       const fieldName = input.name.replace(`cert-${formIndex}-`, '');
       data[fieldName] = value;
-      console.log(`Collected field: ${fieldName} =`, value);
+      console.log(`Collected field: ${fieldName} = "${value}"`);
     }
   });
   
@@ -165,34 +165,37 @@ async function downloadPDF(certificates) {
     const template = await loadHtmlTemplate();
     
     for (const [index, cert] of certificates.entries()) {
-      // Transform and structure data for the template
-      const structuredData = {
-        header: {
-          vesselName: cert['header.vesselName'] || '',
-          certificateNo: cert['header.certificateNo'] || `CERT-${Date.now()}`,
-          manufacturedBy: cert['header.manufacturedBy'] || '',
-          ownerName: cert['header.ownerName'] || '',
-          manufacturingDate: cert['header.manufacturingDate'] || '',
-          serviceDate: cert['header.serviceDate'] || '',
-          imoNumber: cert['header.imoNumber'] || '',
-          type: cert['header.type'] || '',
-          capacity: cert['header.capacity'] || '',
-          liferaftSerialNo: cert['header.liferaftSerialNo'] || '',
-          lastServiceDate: cert['header.lastServiceDate'] || ''
-        },
-        buoyancyStatus: cert.buoyancyStatus || {},
-        inflatableEquipments: cert.inflatableEquipments || {},
-        equipment: cert.equipment || {},
-        pyrotechnicItems: cert.pyrotechnicItems || {},
-        canopyComponents: cert.canopyComponents || {},
-        floorComponents: cert.floorComponents || {},
-        survivalEquipment: cert.survivalEquipment || {},
-        pressureTest: cert.pressureTest || {},
-        finalCertificate: cert.finalCertificate || {},
-        co2Cylinders: cert.co2Cylinders || [{}, {}],
-        solas: cert.solas || '',
-        inspectionDate: new Date().toISOString().split('T')[0]
-      };
+      // Transform and structure data for the template - use exact schema field names
+      const structuredData = {};
+      
+      // Map all collected data directly using dot notation
+      Object.keys(cert).forEach(key => {
+        const value = cert[key];
+        if (value !== undefined && value !== '') {
+          // Convert flat keys to nested object structure
+          const parts = key.split('.');
+          let current = structuredData;
+          
+          for (let i = 0; i < parts.length - 1; i++) {
+            if (!current[parts[i]]) {
+              current[parts[i]] = {};
+            }
+            current = current[parts[i]];
+          }
+          
+          current[parts[parts.length - 1]] = value;
+        }
+      });
+      
+      console.log('Structured data for template:', structuredData);
+      console.log('Available data keys:', Object.keys(structuredData));
+      
+      // Debug: Check if we have header data
+      if (structuredData.header) {
+        console.log('Header data found:', structuredData.header);
+      } else {
+        console.log('WARNING: No header data found in structured data');
+      }
       
       // Replace placeholders with conditional rendering
       let html = template;
@@ -212,12 +215,18 @@ async function downloadPDF(certificates) {
                 replaceNestedPlaceholders(item, `${fullKey}[${index}]`);
               } else if (item && item.toString().trim() !== '') {
                 const arrayKey = `${fullKey}[${index}]`;
-                html = html.replace(new RegExp(`{{${arrayKey}}}`, 'g'), item);
+                html = html.replace(new RegExp(`\\{\\{${arrayKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\}\\}`, 'g'), item);
               }
             });
           } else if (value && value.toString().trim() !== '') {
-            // Replace filled values
-            html = html.replace(new RegExp(`{{${fullKey}}}`, 'g'), value);
+            // Replace filled values with escaped regex
+            const escapedKey = fullKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`\\{\\{${escapedKey}\\}\\}`, 'g');
+            const replacements = html.match(regex);
+            if (replacements) {
+              console.log(`Replacing ${replacements.length} instances of {{${fullKey}}} with "${value}"`);
+            }
+            html = html.replace(regex, value);
           }
         }
       }
@@ -230,13 +239,19 @@ async function downloadPDF(certificates) {
       html = html.replace(/<strong>\s*{{[^}]+}}\s*<\/strong>/g, '<strong>&#xa0;</strong>');
       html = html.replace(/{{[^}]+}}/g, '&#xa0;');
       
+      // Create a simple, clean filename
+      const vesselName = structuredData.header.vesselName || 'Unknown';
+      const certNumber = structuredData.header.certificateNo || Date.now();
+      const cleanVesselName = vesselName.replace(/[^a-zA-Z0-9]/g, '_');
+      const filename = `Certificate_${cleanVesselName}_${certNumber}.pdf`;
+      
       // Generate PDF
       const response = await fetch('/generate-pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           html,
-          filename: `certificate_${structuredData.header.certificateNo}.pdf` 
+          filename: filename
         })
       });
       
@@ -252,14 +267,11 @@ async function downloadPDF(certificates) {
         throw new Error(errorMessage);
       }
       
-      // Create a simple, clean filename
-      const vesselName = structuredData.header.vesselName || 'Unknown';
-      const certNumber = structuredData.header.certificateNo || Date.now();
-      const cleanVesselName = vesselName.replace(/[^a-zA-Z0-9]/g, '_');
-      const filename = `Certificate_${cleanVesselName}_${certNumber}.pdf`;
+      // Get the response as array buffer
+      const arrayBuffer = await response.arrayBuffer();
       
       // Create a blob URL for the PDF with explicit PDF type
-      const blob = new Blob([await response.arrayBuffer()], { type: 'application/pdf' });
+      const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
       const url = window.URL.createObjectURL(blob);
       
       // Create and trigger download with explicit attributes

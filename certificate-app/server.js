@@ -66,11 +66,17 @@ const server = http.createServer(async (req, res) => {
       let browser;
       try {
         console.log('Parsing request body...');
-        const { html, filename = 'certificate.pdf' } = JSON.parse(body);
+        const requestData = JSON.parse(body);
+        const { html, filename = 'certificate.pdf' } = requestData;
+        console.log('Request data:', { hasHtml: !!html, filename });
         
         if (!html) {
           throw new Error('No HTML content provided');
         }
+        
+        // Ensure filename always ends with .pdf and is properly sanitized
+        const finalFilename = filename.endsWith('.pdf') ? filename : `${filename}.pdf`;
+        console.log(`Processing PDF generation for: ${finalFilename}`);
         
         console.log('Launching browser...');
         const launchOptions = {
@@ -127,13 +133,20 @@ const server = http.createServer(async (req, res) => {
         
         console.log('PDF generated successfully');
         
-        // Send the PDF with proper headers
-        const safeFilename = filename.replace(/[^a-zA-Z0-9._-]/g, '_');
+        // Send the PDF with proper headers using the final filename
+        const cleanFilename = finalFilename.replace(/[^a-zA-Z0-9._-]/g, '_');
+        
+        console.log(`Sending PDF with filename: ${cleanFilename}`);
+        
         res.writeHead(200, {
           'Content-Type': 'application/pdf',
-          'Content-Disposition': `attachment; filename="${safeFilename}"`,
+          'Content-Disposition': `attachment; filename="${cleanFilename}"; filename*=UTF-8''${encodeURIComponent(cleanFilename)}`,
           'Content-Length': pdf.length,
-          'Cache-Control': 'no-cache'
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+          'X-Content-Type-Options': 'nosniff',
+          'Content-Transfer-Encoding': 'binary'
         });
         res.end(pdf);
         
